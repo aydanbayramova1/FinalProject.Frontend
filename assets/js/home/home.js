@@ -1,105 +1,15 @@
-// (function ($) {
-//     "use strict";
-	
-// 	var $window = $(window); 
-// 	var $body = $('body'); 
-
-// 	/* Preloader Effect */
-// 	$window.on('load', function(){
-// 		$(".preloader").fadeOut(600);
-// 	});
-
-
-    
-// 	/* Sticky Header */	
-// 	if($('.active-sticky-header').length){
-// 		$window.on('resize', function(){
-// 			setHeaderHeight();
-// 		});
-
-// 		function setHeaderHeight(){
-// 	 		$("header.main-header").css("height", $('header .header-sticky').outerHeight());
-// 		}	
-	
-// 		$window.on("scroll", function() {
-// 			var fromTop = $(window).scrollTop();
-// 			setHeaderHeight();
-// 			var headerHeight = $('header .header-sticky').outerHeight()
-// 			$("header .header-sticky").toggleClass("hide", (fromTop > headerHeight + 100));
-// 			$("header .header-sticky").toggleClass("active", (fromTop > 600));
-// 		});
-// 	}	
-	
-// 	/* Slick Menu JS */
-// 	$('#menu').slicknav({
-// 		label : '',
-// 		prependTo : '.responsive-menu'
-// 	});
-
-// 	if($("a[href='#top']").length){
-// 		$(document).on("click", "a[href='#top']", function() {
-// 			$("html, body").animate({ scrollTop: 0 }, "slow");
-// 			return false;
-// 		});
-// 	}
-
-
-// 	/* Slick Menu JS */
-// 	$('#menu').slicknav({
-// 		label : '',
-// 		prependTo : '.responsive-menu'
-// 	});
-
-// 	if($("a[href='#top']").length){
-// 		$(document).on("click", "a[href='#top']", function() {
-// 			$("html, body").animate({ scrollTop: 0 }, "slow");
-// 			return false;
-// 		});
-// 	}
-
-//     $('#menu').slicknav({
-//         label : '',
-//         prependTo : '.responsive-menu'
-//     });
-
-// })(jQuery);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+"use strict";
 
 (function ($) {
-    "use strict";
+   
 	
 	var $window = $(window); 
 	var $body = $('body'); 
 
-	/* Preloader Effect */
 	$window.on('load', function(){
 		$(".preloader").fadeOut(600);
 	});
 
-	/* Sticky Header */	
 	if($('.active-sticky-header').length){
 		$window.on('resize', function(){
 			setHeaderHeight();
@@ -118,7 +28,6 @@
 		});
 	}	
 	
-	/* Slick Menu JS */
 	$('#menu').slicknav({
 		label : '',
 		prependTo : '.responsive-menu'
@@ -131,7 +40,7 @@
 		});
 	}
 
-	/* Hero Slider Layout JS */
+
 	const hero_slider_layout = new Swiper('.hero-slider-layout .swiper', {
 		effect: 'fade',
 		slidesPerView : 1,
@@ -147,7 +56,6 @@
 		},
 	});
 
-	/* testimonial Slider JS */
 	if ($('.testimonial-slider').length) {
 		const testimonial_slider = new Swiper('.testimonial-slider .swiper', {
 			slidesPerView : 1,
@@ -176,7 +84,6 @@
 		});
 	}
 
-	/* Skill Bar */
 	if ($('.skills-progress-bar').length) {
 		$('.skills-progress-bar').waypoint(function() {
 			$('.skillbar').each(function() {
@@ -189,17 +96,16 @@
 		});
 	}
 
-	/* Youtube Background Video JS */
 	if ($('#herovideo').length) {
 		var myPlayer = $("#herovideo").YTPlayer();
 	}
 
-	/* Init Counter */
+
 	if ($('.counter').length) {
 		$('.counter').counterUp({ delay: 6, time: 3000 });
 	}
 
-	/* Image Reveal Animation */
+	
 	if ($('.reveal').length) {
         gsap.registerPlugin(ScrollTrigger);
         let revealContainers = document.querySelectorAll(".reveal");
@@ -227,7 +133,7 @@
         });
     }
 
-	/* Text Effect Animation */
+	
 	if ($('.text-anime-style-1').length) {
 		let staggerAmount 	= 0.05,
 			translateXValue = 0,
@@ -272,7 +178,7 @@
 		let	animatedTextElements = document.querySelectorAll('.text-anime-style-3');
 		
 		 animatedTextElements.forEach((element) => {
-			//Reset if needed
+		
 			if (element.animation) {
 				element.animation.progress(1).kill();
 				element.split.revert();
@@ -302,7 +208,6 @@
 		});		
 	}
 
-	/* Parallaxie js */
 	var $parallaxie = $('.parallaxie');
 	if($parallaxie.length && ($window.width() > 991))
 	{
@@ -314,7 +219,6 @@
 		}
 	}
 
-	/* Zoom Gallery screenshot */
 	$('.gallery-items').magnificPopup({
 		delegate: 'a',
 		type: 'image',
@@ -329,14 +233,13 @@
 		},
 		zoom: {
 			enabled: true,
-			duration: 300, // don't foget to change the duration also in CSS
+			duration: 300, 
 			opener: function(element) {
 			  return element.find('img');
 			}
 		}
 	});
 
-	/* Contact form validation */
 	var $contactform = $("#contactForm");
 	$contactform.validator({focus: false}).on("submit", function (event) {
 		if (!event.isDefaultPrevented()) {
@@ -346,7 +249,7 @@
 	});
 
 	function submitForm(){
-		/* Ajax call to submit form */
+	
 		$.ajax({
 			type: "POST",
 			url: "form-process.php",
@@ -374,9 +277,7 @@
 		}
 		$("#msgSubmit").removeClass().addClass(msgClasses).text(msg);
 	}
-	/* Contact form validation end */
-
-	/* Appointment form validation */
+	
 	var $appointmentForm = $("#appointmentForm");
 	$appointmentForm.validator({focus: false}).on("submit", function (event) {
 		if (!event.isDefaultPrevented()) {
@@ -386,7 +287,7 @@
 	});
 
 	function submitappointmentForm(){
-		/* Ajax call to submit form */
+
 		$.ajax({
 			type: "POST",
 			url: "form-appointment.php",
@@ -414,23 +315,20 @@
 		}
 		$("#msgSubmit").removeClass().addClass(msgClasses).text(msg);
 	}
-	/* Appointment form validation end */
 
-	/* Our Project (filtering) Start */
+	
 	$window.on( "load", function(){
 		if( $(".project-item-boxes").length ) {
 				
-			/* Init Isotope */
 			var $menuitem = $(".project-item-boxes").isotope({
 				itemSelector: ".project-item-box",
 				layoutMode: "masonry",
 				masonry: {
-					// use outer width of grid-sizer for columnWidth
+					
 					columnWidth: 1,
 				}
 			});
-				
-			/* Filter items on click */
+		
 			var $menudisesnav = $(".our-Project-nav li a");
 				$menudisesnav.on('click', function (e) { 
 			
@@ -446,12 +344,11 @@
 			$menuitem.isotope({ filter: "*" });
 		}			
 	});
-	/* Our Project (filtering) End */
-
-	/* Animated Wow Js */	
+	
+	
 	new WOW().init();
 
-	/* Popup Video */
+
 	if ($('.popup-video').length) {
 		$('.popup-video').magnificPopup({
 			type: 'iframe',
@@ -462,7 +359,7 @@
 		});
 	}
 
-	/* Interactive Process Layout Start */
+
 	var element = $('.interactive');
     if (element.hasClass('interactive-process-layout')) {                
 		var items = element.find('.interactive-inner-process');
@@ -481,12 +378,12 @@
 					targetImg.addClass('show');
 				},
 				mouseleave: function() {
-					//stuff to do on mouse leave
+					
 				}
 			});
 		}                 
 	}
-	/* Interactive Process Layout End */
+
 	
     // document.addEventListener("DOMContentLoaded", function () {
     //     let menuBtn = document.getElementById("menuBtn");
