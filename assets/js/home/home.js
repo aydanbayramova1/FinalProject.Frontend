@@ -63,6 +63,31 @@ $(document).ready(function () {
 });
 
 
+function counterUp(elementsSelector, delay, duration) {
+    const elements = document.querySelectorAll(elementsSelector);
+
+    elements.forEach(element => {
+        let start = 0;
+        let end = parseInt(element.textContent, 10);
+        let range = end - start;
+        let increment = end / (duration / delay);
+        let current = start;
+        let timer = setInterval(() => {
+            current += increment;
+            if (current >= end) {
+                element.textContent = end;
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(current);
+            }
+        }, delay);
+    });
+}
+
+counterUp('.counter', 6, 3000);
+
+
+
 (function ($) {
    
 	
@@ -141,6 +166,46 @@ $(document).ready(function () {
     //     var bsOffcanvas = new bootstrap.Offcanvas(offcanvasEl);
     //     bsOffcanvas.show();
     // });
+
+if ($('.testimonial-slider').length) {
+    const testimonial_slider = new Swiper('.testimonial-slider .swiper', {
+        slidesPerView : 1,
+        speed: 1000,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            delay: 5000,
+        },
+        pagination: {
+            el: '.testimonial-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.testimonial-btn-next',
+            prevEl: '.testimonial-btn-prev',
+        },
+        breakpoints: {
+            768:{
+                slidesPerView: 1,
+            },
+            991:{
+                slidesPerView: 1,
+            }
+        }
+    });
+}
+
+if ($('.skills-progress-bar').length) {
+    $('.skills-progress-bar').waypoint(function() {
+        $('.skillbar').each(function() {
+            $(this).find('.count-bar').animate({
+            width:$(this).attr('data-percent')
+            },2000);
+        });
+    },{
+        offset: '50%'
+    });
+}
 
 
 })(jQuery);
