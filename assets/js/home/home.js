@@ -71,9 +71,9 @@ $(document).ready(function () {
     
     $('#menu').slicknav({
         label: '',
-        prependTo: '.responsive-menu', // hamburger menyusu hara yerləşdiriləcək
-        closedSymbol: '&#9658;',       // ▶
-        openedSymbol: '&#9660;'        // ▼
+        prependTo: '.responsive-menu', 
+        closedSymbol: '&#9658;',      
+        openedSymbol: '&#9660;'        
       });
 
 	if($("a[href='#top']").length){

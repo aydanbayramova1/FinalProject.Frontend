@@ -1660,27 +1660,6 @@ body:has(.offcanvas){
 
 
 
-
-
-
-:root{
-	--primary-color				: #FFFFFF;
-	--secondary-color			: #121D23;
-	--text-color				: #CECECE;
-	--accent-color				: #C9A581;
-	--accent-secondary-color	: #E4CCB4;
-	--divider-color				: #FFFFFF24;
-	--dark-divider-color		: #FFFFFF1A;
-	--error-color				: rgb(230, 87, 87);
-	--default-font				: "Jost", serif;
-	--accent-font				: "Forum", serif;
-}
-
-
-
-
-
-
 .why-choose-us{
 	position: relative;
 	padding: 100px 0;
@@ -1786,18 +1765,6 @@ body:has(.offcanvas){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 .slicknav_menu {
     text-align: right;
     background: transparent;
@@ -1807,3 +1774,26 @@ body:has(.offcanvas){
   .slicknav_btn {
     float: right;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
