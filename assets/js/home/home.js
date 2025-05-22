@@ -1246,3 +1246,18 @@ document.addEventListener("DOMContentLoaded", () => {
   `
   document.head.appendChild(style)
 })
+document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll(".image-anime img");
+
+  images.forEach((img) => {
+    img.style.transition = "transform 5s ease-in-out";
+
+    img.addEventListener("mouseenter", function () {
+      this.style.transform = "scale(1.05)";
+    });
+
+    img.addEventListener("mouseleave", function () {
+      this.style.transform = "scale(1)";
+    });
+  });
+});
