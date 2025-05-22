@@ -1088,3 +1088,161 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 })
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const accordionItems = document.querySelectorAll(".accordion-item")
+
+  accordionItems.forEach((item) => {
+    const header = item.querySelector(".accordion-header")
+    const button = item.querySelector(".accordion-button")
+    const collapse = item.querySelector(".accordion-collapse")
+    const collapseInner = item.querySelector(".accordion-body")
+
+    if (header && button && collapse && collapseInner) {
+      button.removeAttribute("data-bs-toggle")
+      button.removeAttribute("data-bs-target")
+
+      const buttonText = button.textContent.trim()
+      button.innerHTML = ""
+
+      const toggleIcon = document.createElement("span")
+      toggleIcon.className = "accordion-toggle-icon"
+      toggleIcon.innerHTML = collapse.classList.contains("show") ? "-" : "+"
+      button.appendChild(toggleIcon)
+
+      const textSpan = document.createElement("span")
+      textSpan.className = "accordion-button-text"
+      textSpan.textContent = buttonText
+      button.appendChild(textSpan)
+
+      button.classList.add("no-arrow")
+
+      let contentHeight = collapseInner.offsetHeight
+
+      if (collapse.classList.contains("show")) {
+        collapse.style.height = contentHeight + "px"
+      } else {
+        collapse.style.height = "0px"
+        button.classList.add("collapsed")
+      }
+
+      button.addEventListener("click", () => {
+        button.classList.toggle("collapsed")
+
+        toggleIcon.innerHTML = button.classList.contains("collapsed") ? "+" : "-"
+
+        button.setAttribute("aria-expanded", !button.classList.contains("collapsed") ? "true" : "false")
+
+        if (button.classList.contains("collapsed")) {
+          collapse.style.height = collapse.offsetHeight + "px" 
+          setTimeout(() => {
+            collapse.style.height = "0px"
+            setTimeout(() => {
+              collapse.classList.remove("show")
+            }, 300)
+          }, 10)
+        } else {
+          collapse.classList.add("show")
+          collapse.style.height = "0px" 
+          setTimeout(() => {
+            contentHeight = collapseInner.offsetHeight
+            collapse.style.height = contentHeight + "px"
+          }, 10)
+
+          const parentAccordion = item.closest(".offers-accordion")
+          if (parentAccordion) {
+            const otherItems = parentAccordion.querySelectorAll(".accordion-item")
+
+            otherItems.forEach((otherItem) => {
+              if (otherItem !== item) {
+                const otherButton = otherItem.querySelector(".accordion-button")
+                const otherCollapse = otherItem.querySelector(".accordion-collapse")
+                const otherIcon = otherItem.querySelector(".accordion-toggle-icon")
+                const otherCollapseInner = otherItem.querySelector(".accordion-body")
+
+                if (otherButton && otherCollapse && otherIcon) {
+                  otherButton.classList.add("collapsed")
+                  otherButton.setAttribute("aria-expanded", "false")
+
+                  otherCollapse.style.height = otherCollapse.offsetHeight + "px"
+                  setTimeout(() => {
+                    otherCollapse.style.height = "0px"
+                    setTimeout(() => {
+                      otherCollapse.classList.remove("show")
+                    }, 300) 
+                  }, 10)
+
+                  otherIcon.innerHTML = "+"
+                }
+              }
+            })
+          }
+        }
+      })
+
+      window.addEventListener("resize", () => {
+        if (!button.classList.contains("collapsed")) {
+          contentHeight = collapseInner.offsetHeight
+          collapse.style.height = contentHeight + "px"
+        }
+      })
+    }
+  })
+
+  const style = document.createElement("style")
+  style.textContent = `
+    .accordion-button {
+      position: relative;
+      padding-left: 50px !important;
+      padding-right: 20px !important;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      color : #C9A581;
+    }
+    
+    .accordion-toggle-icon {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      font-weight: bold;
+      width: 24px;
+      height: 24px;
+      line-height: 22px;
+      text-align: center;
+      transition: all 0.3s ease;
+         color:#C9A581;
+    }
+    
+    .accordion-button-text {
+      flex: 1;
+    }
+    
+    .accordion-button.no-arrow::after {
+      display: none !important;
+    }
+    
+    .accordion-collapse {
+      transition: height 0.3s ease-in-out;
+      overflow: hidden;
+    }
+    
+    .accordion-button:hover .accordion-toggle-icon {
+      color:#C9A581;
+    }
+    
+    .accordion-button:hover {
+      background-color: rgba(0, 0, 0, 0.03);
+    }
+    
+    .accordion-button:not(.collapsed) {
+      background-color: rgba(170, 5, 5, 0.05);
+    }rgba(0, 0, 0, 0.05)rgba(203, 143, 31, 0.05)
+  `
+  document.head.appendChild(style)
+})
