@@ -4924,7 +4924,6 @@ body{
 }
 
 .our-team{
-	background: url('../images/offer-bg-image.png') no-repeat;
 	background-position: center center;
 	background-size: 100% auto;
 	padding: 100px 0 70px;
@@ -5489,4 +5488,16 @@ body{
     transform: scale(1.05);
   }
   
+
+  .team-image {
+    position: relative;
+  }
+  
+  .team-image::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    pointer-events: none; 
+  }
   
