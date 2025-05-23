@@ -959,55 +959,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
-  function addSizeOptionsToItem(menuItem) {
-    const priceElement = menuItem.querySelector(".menu-item-title span")
-    if (!priceElement) return
-
-    const basePrice = Number.parseFloat(priceElement.textContent.replace("$", ""))
-    if (isNaN(basePrice)) return
-
-    if (menuItem.querySelector(".menu-size-options")) return
-
-    const sizeOptionsHTML = `
-      <div class="menu-size-options">
-        <div class="menu-size-label">Size:</div>
-        <div class="size-options">
-          <div class="size-option active" data-size="s" data-price-modifier="0">S</div>
-          <div class="size-option" data-size="m" data-price-modifier="2">M</div>
-          <div class="size-option" data-size="l" data-price-modifier="4">L</div>
-        </div>
-      </div>
-    `
-
-    const menuItemContent = menuItem.querySelector(".menu-item-content")
-    if (menuItemContent) {
-      menuItemContent.insertAdjacentHTML("beforebegin", sizeOptionsHTML)
-    }
-
-    const sizeOptions = menuItem.querySelectorAll(".size-option")
-    sizeOptions.forEach((option) => {
-      option.addEventListener("click", function () {
-        sizeOptions.forEach((opt) => opt.classList.remove("active"))
-
-        this.classList.add("active")
-
-        const priceModifier = Number.parseFloat(this.getAttribute("data-price-modifier"))
-
-        const newPrice = (basePrice + priceModifier).toFixed(2)
-
-        priceElement.classList.add("price-change")
-
-        setTimeout(() => {
-          priceElement.textContent = `$${newPrice}`
-
-          setTimeout(() => {
-            priceElement.classList.remove("price-change")
-          }, 500)
-        }, 250)
-      })
-    })
-  }
-
   const style = document.createElement("style")
   style.textContent = `
     .price-change {

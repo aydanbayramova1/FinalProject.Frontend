@@ -4749,7 +4749,6 @@ body{
 		transform: scale(1.05);
 	  }
 	  
-	  
 
 
 .page-header{
@@ -4784,13 +4783,14 @@ body{
 .page-header-box h1{
 	display: inline-block;
     color: #FFFFFF;
-	font-family:  #C9A581;
-    font-size: 70px;
+    font-family: 'Playfair Display', serif; 
+    font-size: 64px; 
     font-weight: 400;
     line-height: 1.1em;
 	text-transform: uppercase;
     margin-bottom: 10px;
     cursor: none;
+    letter-spacing: 2px;
 }
 
 .page-header-box ol{
@@ -5008,11 +5008,13 @@ body{
 	margin-right: 0;
 }
 
+
+
 .team-social-icon ul li a{
 	width: 40px;
 	height: 40px;
-	color: var(--primary-color);
-	background: var(--accent-color);
+	color: #FFFFFF;
+	background: #C9A581;
 	border-radius: 50%;
 	display: flex;
 	align-items: center;
@@ -5021,8 +5023,8 @@ body{
 }
 
 .team-social-icon ul li a:hover{
-	background: var(--primary-color);
-	color: var(--secondary-color);
+	background: #FFFFFF;
+	color:  #121D23;
 }
 
 .team-social-icon ul li a i{
@@ -5031,7 +5033,7 @@ body{
 }
 
 .team-content h3{
-	color: var(--primary-color);
+	color: #FFFFFF;
 	font-size: 22px;
 	text-transform: capitalize;
 	margin-bottom: 10px;
@@ -5069,7 +5071,7 @@ body{
 .story-item{
 	display: flex;
 	flex-wrap: wrap;
-	border-bottom: 1px solid var(--divider-color);
+	border-bottom: 1px solid #FFFFFF24;
 	margin-bottom: 30px;
 	padding-bottom: 30px;
 }
@@ -5082,7 +5084,7 @@ body{
 
 .story-item .icon-box{
     position: relative;
-    background-color: var(--dark-divider-color);
+    background-color:#FFFFFF1A;
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -5099,7 +5101,7 @@ body{
     position: absolute;
     top: 0;
     left: 0;
-	background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-secondary-color) 100%);
+	background: linear-gradient(90deg, #C9A581 0%, #E4CCB4 100%);
     border-radius: 50%;
     width: 100%;
     height: 100%;
@@ -5147,8 +5149,8 @@ body{
 
 .faq-accordion .accordion-item{
 	position: relative;
-	background: var(--secondary-color);
-    border: 1px solid var(--divider-color);
+	background:  #121D23;
+    border: 1px solid #FFFFFF24;
 	border-radius: 10px;
 	margin-bottom: 30px;
     padding: 0;
@@ -5183,7 +5185,7 @@ body{
 }
 
 .faq-accordion .accordion-header .accordion-button.collapsed{
-	background: var(--secondary-color);
+	background: #121D23;
 }
 
 .faq-accordion .accordion-item .accordion-button::after,
@@ -5202,15 +5204,15 @@ body{
     line-height: normal;
 	width: 24px;
 	height: 24px;
-    color: var(--secondary-color);
-	background-color: var(--accent-color);
+    color:  #121D23;
+	background-color:#C9A581;
     border-radius: 50%;
 	transition: all 0.4s ease-in-out;
 }
 
 .faq-accordion .accordion-item .accordion-button.collapsed::after{
 	content: '\2b';
-	color: var(--primary-color);
+	color: #FFFFFF;
 }
 
 .faq-accordion .accordion-item .accordion-body{
@@ -5501,3 +5503,72 @@ body{
     pointer-events: none; 
   }
   
+  .header2-search {
+    position: relative;
+    width: 180px;
+    margin-left: 112px;
+}
+
+.header2-search form {
+    display: flex;
+    align-items: center;
+    background-color: #fffaf0;
+    border-radius: 30px;
+    padding: 5px 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header2-search input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    padding: 8px;
+    font-size: 14px;
+    color: #333;
+}
+
+.header2-search .btn {
+    background-color: #f5deb3;
+    border: none;
+    border-radius: 20px;
+    padding: 8px;
+    margin-left: -20px;
+    cursor: pointer;
+}
+
+.suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fffaf0;
+    border: 1px solid #e6cda3;
+    border-radius: 0 0 10px 10px;
+    max-height: 100px;
+    overflow-y: auto;
+    list-style: none;
+    padding: 0;
+    margin: 2px 0 0 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 99;
+}
+
+.suggestions li {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.suggestions li:hover {
+    background-color: #f5deb3;
+}
+
+
+.menu-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+.menu-item.hidden {
+    display: none;
+}
+
