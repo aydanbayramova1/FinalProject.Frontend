@@ -1295,36 +1295,629 @@ tabButtons.forEach(btn => {
 });
 
 
+function selectSize(element, itemName, newPrice) {
+    const itemContainer = element.closest('.menu-list-item');
+    const allSizeOptions = itemContainer.querySelectorAll('.size-option');
+    
+    allSizeOptions.forEach(function(option) {
+        option.classList.remove('active');
+    });
+    
+    element.classList.add('active');
+    element.classList.add('selecting');
+    
+    setTimeout(function() {
+        element.classList.remove('selecting');
+    }, 300);
+    
+    const priceElement = itemContainer.querySelector('.item-price');
+    if (priceElement) {
+        priceElement.classList.add('price-change');
+        
+        setTimeout(function() {
+            priceElement.textContent = '$' + newPrice.toFixed(2);
+            
+            setTimeout(function() {
+                priceElement.classList.remove('price-change');
+            }, 300);
+        }, 150);
+    }
+    
+    localStorage.setItem('size_' + itemName, element.dataset.size);
+    
+    const event = new CustomEvent('sizeSelected', {
+        detail: {
+            itemName: itemName,
+            size: element.dataset.size,
+            price: newPrice
+        }
+    });
+    document.dispatchEvent(event);
+}
 
-document.addEventListener("DOMContentLoaded", function () {
-  const items = document.querySelectorAll('.slide-in-left');
-
-  const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-          if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-          }
-      });
-  }, {
-      threshold: 0.2
-  });
-
-  items.forEach(item => {
-      observer.observe(item);
-  });
+document.addEventListener('DOMContentLoaded', function() {
+    const menuItems = document.querySelectorAll('.menu-list-item[data-item]');
+    
+    menuItems.forEach(function(item) {
+        const itemName = item.dataset.item;
+        const savedSize = localStorage.getItem('size_' + itemName);
+        
+        if (savedSize) {
+            const sizeOption = item.querySelector('.size-option[data-size="' + savedSize + '"]');
+            if (sizeOption) {
+                const allOptions = item.querySelectorAll('.size-option');
+                allOptions.forEach(function(opt) {
+                    opt.classList.remove('active');
+                });
+                
+                sizeOption.classList.add('active');
+                
+                const price = parseFloat(sizeOption.dataset.price);
+                const priceElement = item.querySelector('.item-price');
+                if (priceElement && !isNaN(price)) {
+                    priceElement.textContent = '$' + price.toFixed(2);
+                }
+            }
+        }
+    });
 });
 
-window.addEventListener("beforeunload", function () {
-  sessionStorage.setItem("scrollY", window.scrollY);
+document.addEventListener('keydown', function(e) {
+    if (e.target.classList.contains('size-option')) {
+        const currentOption = e.target;
+        const allOptions = currentOption.closest('.size-options').querySelectorAll('.size-option');
+        const currentIndex = Array.from(allOptions).indexOf(currentOption);
+        
+        let nextIndex = currentIndex;
+        
+        switch(e.key) {
+            case 'ArrowLeft':
+                e.preventDefault();
+                nextIndex = currentIndex > 0 ? currentIndex - 1 : allOptions.length - 1;
+                break;
+            case 'ArrowRight':
+                e.preventDefault();
+                nextIndex = currentIndex < allOptions.length - 1 ? currentIndex + 1 : 0;
+                break;
+            case 'Enter':
+            case ' ':
+                e.preventDefault();
+                currentOption.click();
+                return;
+        }
+        
+        if (nextIndex !== currentIndex) {
+            allOptions[nextIndex].focus();
+        }
+    }
 });
 
-window.addEventListener("load", function () {
-  const scrollY = sessionStorage.getItem("scrollY");
-  if (scrollY !== null) {
-      setTimeout(() => {
-          window.scrollTo(0, parseInt(scrollY));
-      }, 100);
-  }
+document.addEventListener('DOMContentLoaded', function() {
+    const sizeOptions = document.querySelectorAll('.size-option');
+    sizeOptions.forEach(function(option) {
+        option.setAttribute('tabindex', '0');
+        option.setAttribute('role', 'button');
+        option.setAttribute('aria-label', 'Select size ' + option.dataset.size + ' for $' + option.dataset.price);
+    });
 });
+
+document.addEventListener('touchstart', function(e) {
+    if (e.target.classList.contains('size-option')) {
+        e.target.style.transform = 'scale(0.95)';
+    }
+});
+
+document.addEventListener('touchend', function(e) {
+    if (e.target.classList.contains('size-option')) {
+        setTimeout(function() {
+            e.target.style.transform = '';
+        }, 150);
+    }
+});
+
+document.addEventListener('sizeSelected', function(e) {
+    console.log('Size selected:', e.detail);
+});
+
+function setAllSizes(size) {
+    const allSizeOptions = document.querySelectorAll('.size-option[data-size="' + size + '"]');
+    allSizeOptions.forEach(function(option) {
+        option.click();
+    });
+}
+
+function resetAllSizes() {
+    const allSmallOptions = document.querySelectorAll('.size-option[data-size="s"]');
+    allSmallOptions.forEach(function(option) {
+        option.click();
+    });
+    
+    const keys = Object.keys(localStorage);
+    keys.forEach(function(key) {
+        if (key.startsWith('size_')) {
+            localStorage.removeItem(key);
+        }
+    });
+}
+
+window.selectSize = selectSize;
+window.setAllSizes = setAllSizes;
+window.resetAllSizes = resetAllSizes;
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    initializeRestaurantMenu();
+    setupFilterAndSort();
+    setupSizeButtons();
+    setupScrollAnimations();
+    setupGalleryInteractions();
+    setupMenuInteractions();
+});
+
+function initializeRestaurantMenu() {
+    console.log('Restaurant Style Coffee Menu Initialized');
+    
+    const menuSections = document.querySelectorAll('.menu-section');
+    menuSections.forEach(function(section, index) {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(50px)';
+        
+        setTimeout(function() {
+            section.style.transition = 'all 0.8s ease';
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0)';
+        }, index * 200);
+    });
+}
+
+function setupFilterAndSort() {
+    const categoryFilter = document.getElementById('categoryFilter');
+    const priceSort = document.getElementById('priceSort');
+
+    categoryFilter.addEventListener('change', applyFilters);
+    priceSort.addEventListener('change', applySorting);
+
+    function applyFilters() {
+        const categoryValue = categoryFilter.value;
+        const allSections = document.querySelectorAll('.menu-section');
+
+        allSections.forEach(function(section) {
+            const sectionCategory = section.dataset.category;
+            
+            if (categoryValue === 'all' || sectionCategory === categoryValue) {
+                section.classList.remove('hidden');
+                section.style.display = 'block';
+                
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                
+                setTimeout(function() {
+                    section.style.transition = 'all 0.6s ease';
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }, 100);
+            } else {
+                section.classList.add('hidden');
+                section.style.display = 'none';
+            }
+        });
+
+        applySorting();
+        
+        console.log('Filtered by category:', categoryValue);
+    }
+
+    function applySorting() {
+        const sortValue = priceSort.value;
+        const visibleSections = document.querySelectorAll('.menu-section:not(.hidden)');
+
+        visibleSections.forEach(function(section) {
+            const menuItems = Array.from(section.querySelectorAll('.menu-item'));
+            const menuItemsContainer = section.querySelector('.menu-items');
+
+            if (menuItems.length === 0) return;
+
+            menuItems.sort(function(a, b) {
+                switch (sortValue) {
+                    case 'price-low':
+                        return parseFloat(a.dataset.basePrice) - parseFloat(b.dataset.basePrice);
+                    case 'price-high':
+                        return parseFloat(b.dataset.basePrice) - parseFloat(a.dataset.basePrice);
+                    case 'name-az':
+                        const nameA = a.querySelector('.item-name').textContent;
+                        const nameB = b.querySelector('.item-name').textContent;
+                        return nameA.localeCompare(nameB);
+                    case 'name-za':
+                        const nameA2 = a.querySelector('.item-name').textContent;
+                        const nameB2 = b.querySelector('.item-name').textContent;
+                        return nameB2.localeCompare(nameA2);
+                    default:
+                        return 0;
+                }
+            });
+
+            menuItems.forEach(function(item) {
+                menuItemsContainer.appendChild(item);
+            });
+
+            menuItems.forEach(function(item, index) {
+                item.style.animation = 'none';
+                setTimeout(function() {
+                    item.style.animation = `fadeInUp 0.4s ease-out ${index * 0.1}s both`;
+                }, 50);
+            });
+        });
+
+        console.log('Menu sorted by:', sortValue);
+    }
+}
+
+function setupSizeButtons() {
+    const sizeButtons = document.querySelectorAll('.size-btn');
+    
+    sizeButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            handleSizeSelection(this);
+        });
+        
+        button.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleSizeSelection(this);
+            }
+        });
+        
+        button.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.9)';
+        });
+        
+        button.addEventListener('touchend', function() {
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+    });
+}
+
+function handleSizeSelection(selectedButton) {
+    const menuItem = selectedButton.closest('.menu-item');
+    const sizeButtons = menuItem.querySelectorAll('.size-btn');
+    const priceElement = menuItem.querySelector('.item-price');
+    
+    sizeButtons.forEach(function(btn) {
+        btn.classList.remove('active');
+    });
+    
+    selectedButton.classList.add('active');
+    
+    const newPrice = selectedButton.dataset.price;
+    if (newPrice && priceElement) {
+        updatePrice(priceElement, newPrice);
+    }
+    
+    selectedButton.style.transform = 'scale(0.8)';
+    setTimeout(function() {
+        selectedButton.style.transform = 'scale(1.2)';
+        setTimeout(function() {
+            selectedButton.style.transform = 'scale(1)';
+        }, 200);
+    }, 100);
+    
+    createRippleEffect(selectedButton);
+    
+    logSizeSelection(menuItem, selectedButton);
+}
+
+function updatePrice(priceElement, newPrice) {
+    priceElement.classList.add('price-update');
+    
+    setTimeout(function() {
+        priceElement.textContent = '$' + parseFloat(newPrice).toFixed(2);
+        
+        setTimeout(function() {
+            priceElement.classList.remove('price-update');
+        }, 500);
+    }, 250);
+}
+
+function createRippleEffect(button) {
+    const ripple = document.createElement('span');
+    const rect = button.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    
+    ripple.style.cssText = `
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(212, 175, 55, 0.6);
+        transform: scale(0);
+        animation: ripple 0.6s linear;
+        width: ${size}px;
+        height: ${size}px;
+        left: ${rect.width / 2 - size / 2}px;
+        top: ${rect.height / 2 - size / 2}px;
+        pointer-events: none;
+    `;
+    
+    button.style.position = 'relative';
+    button.style.overflow = 'hidden';
+    button.appendChild(ripple);
+    
+    setTimeout(function() {
+        ripple.remove();
+    }, 600);
+}
+
+const rippleStyle = document.createElement('style');
+rippleStyle.textContent = `
+    @keyframes ripple {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(rippleStyle);
+
+function logSizeSelection(menuItem, selectedButton) {
+    const itemName = menuItem.querySelector('.item-name').textContent;
+    const size = selectedButton.textContent;
+    const price = selectedButton.dataset.price;
+    
+    console.log('Size selected:', {
+        item: itemName,
+        size: size,
+        price: price,
+        timestamp: new Date().toISOString()
+    });
+}
+
+function setupScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('animate-in');
+                
+                const menuItems = entry.target.querySelectorAll('.menu-item');
+                menuItems.forEach(function(item, index) {
+                    setTimeout(function() {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+            }
+        });
+    }, observerOptions);
+    
+    const menuSections = document.querySelectorAll('.menu-section');
+    menuSections.forEach(function(section) {
+        observer.observe(section);
+        
+        const menuItems = section.querySelectorAll('.menu-item');
+        menuItems.forEach(function(item) {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = 'all 0.6s ease';
+        });
+    });
+}
+
+function setupGalleryInteractions() {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    galleryItems.forEach(function(item, index) {
+        item.addEventListener('click', function() {
+            createLightbox(this.querySelector('img').src);
+        });
+        
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px)';
+        
+        setTimeout(function() {
+            item.style.transition = 'all 0.6s ease';
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+        }, index * 100);
+    });
+}
+
+function createLightbox(imageSrc) {
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.innerHTML = `
+        <div class="lightbox-content">
+            <img src="${imageSrc}" alt="Gallery Image">
+            <button class="lightbox-close">&times;</button>
+        </div>
+    `;
+    
+    const lightboxStyles = `
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .lightbox img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 10px;
+        }
+    `;
+    
+    if (!document.querySelector('#lightbox-styles')) {
+        const styleSheet = document.createElement('style');
+        styleSheet.id = 'lightbox-styles';
+        styleSheet.textContent = lightboxStyles;
+        document.head.appendChild(styleSheet);
+    }
+    
+    document.body.appendChild(lightbox);
+    
+    setTimeout(function() {
+        lightbox.style.opacity = '1';
+    }, 10);
+    
+    function closeLightbox() {
+        lightbox.style.opacity = '0';
+        setTimeout(function() {
+            document.body.removeChild(lightbox);
+        }, 300);
+    }
+    
+    lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        }
+    });
+}
+
+function setupMenuInteractions() {
+    const menuItems = document.querySelectorAll('.menu-item');
+    
+    menuItems.forEach(function(item) {
+        item.addEventListener('click', function() {
+            const itemName = this.querySelector('.item-name').textContent;
+            console.log('Menu item clicked:', itemName);
+        });
+        
+        item.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                this.click();
+            }
+        });
+      
+        item.addEventListener('mouseenter', function() {
+          
+        });
+    });
+}
+
+
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = function() {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+function setupSmoothScrolling() {
+    const sectionTitles = document.querySelectorAll('.section-title');
+    
+    sectionTitles.forEach(function(title) {
+        title.style.cursor = 'pointer';
+        title.addEventListener('click', function() {
+            this.closest('.menu-section').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+}
+
+setupSmoothScrolling();
+
+window.RestaurantCoffeeMenu = {
+    updatePrice: updatePrice,
+    handleSizeSelection: handleSizeSelection,
+    logSizeSelection: logSizeSelection,
+    createLightbox: createLightbox
+};
+
+const performanceObserver = new PerformanceObserver(function(list) {
+    list.getEntries().forEach(function(entry) {
+        if (entry.entryType === 'navigation') {
+            console.log('Page load time:', entry.loadEventEnd - entry.loadEventStart, 'ms');
+        }
+    });
+});
+
+if ('PerformanceObserver' in window) {
+    performanceObserver.observe({ entryTypes: ['navigation'] });
+}
+
+window.addEventListener('error', function(e) {
+    console.error('Menu error:', e.error);
+});
+
+console.log('Restaurant Style Coffee Menu Script Loaded Successfully! ☕🌟');
+
+let elegantInteractions = 0;
+document.addEventListener('click', function() {
+    elegantInteractions++;
+    if (elegantInteractions === 30) {
+        console.log('🌟 You\'re truly appreciating our elegant menu design! Enjoy your coffee experience!');
+    }
+});
+
+function addScrollProgress() {
+    const progressBar = document.createElement('div');
+    progressBar.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: linear-gradient(90deg, #d4af37, #f4d03f);
+        z-index: 1001;
+        transition: width 0.1s ease;
+    `;
+    document.body.appendChild(progressBar);
+    
+    window.addEventListener('scroll', function() {
+        const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        progressBar.style.width = scrolled + '%';
+    });
+}
+
+addScrollProgress();
+
 
 
