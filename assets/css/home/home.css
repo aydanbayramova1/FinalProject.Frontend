@@ -4504,8 +4504,7 @@ body{
 
 	#footer-section {
 		position: relative;
-		/* background: url(../../images/common/footer-bg-image.jpg) no-repeat; */
-		background-color: #121D23;;
+		 background: url(../../images/common/footer-bg-image.jpg) no-repeat; 
 		background-position: center center;
 		background-size: cover;
 		padding: 100px 0 0;
