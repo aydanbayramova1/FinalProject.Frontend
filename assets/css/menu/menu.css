@@ -1344,9 +1344,6 @@ body{
 	}
   }
   
-
-
-
 .slicknav_menu {
     text-align: right;
     background: transparent;
@@ -1831,15 +1828,6 @@ body{
         margin-top: 30px;
     }
 
-	.video-play-button a{
-		margin-right: 20px;
-	}
-
-	.about-us-image{
-        max-width: 100%;
-        padding-left: 30px;
-    }
-
 	.opening-time-box{
         max-width: 245px;
 		bottom: 20px;
@@ -1858,47 +1846,6 @@ body{
 		width: 47%;
 	}
 
-
-
-	.intro-video{
-		padding: 50px 0;
-	}
-
-	.intro-video-content{
-		text-align: center;
-	}
-
-	.intro-video-box.about-intro-video{
-		text-align: center;
-		margin-top: 40px;
-	}
-
-	.intro-video-box.about-intro-video .video-play-button p{
-        font-size: 16px;
-    }
-
-	.intro-video-counters{
-		margin-top: 50px;
-		gap: 25px 10px;
-	}
-
-	.video-counter-item{
-		width: calc(50% - 5px);
-	}
-
-	.video-counter-item .icon-box{
-        width: 45px;
-        height: 45px;
-        margin-right: 8px;
-    }
-
-	.video-counter-content{
-        width: calc(100% - 53px);
-    }
-
-	.video-counter-content h2{
-        font-size: 26px;
-    }
 
 	.our-pricing-box .nav-tabs{
         gap: 8px;
@@ -2060,8 +2007,6 @@ body{
   }
 }
 
-
-  
 
 .page-header{
 	position: relative;
