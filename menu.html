@@ -143,8 +143,6 @@
         </section>
         <!-- Header End -->
 
-
-
     </header>
     <!-- Esas Header End -->
     <main>
@@ -158,7 +156,7 @@
                             <h1 class="text-anime-style-3" data-cursor="-opaque">Our menu</h1>
                             <nav class="wow fadeInUp">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="./">home</a></li>
+                                    <li class="breadcrumb-item"><a href="./home.html">home</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Our menu</li>
                                 </ol>
                             </nav>
@@ -211,11 +209,438 @@
         </section>
         <!-- Scrolling Ticker Section End -->
 
-       
+        <!-- page Menu Section Start -->
 
+        <section id="menu">
+            <div class="menu-container">
+                <div style="margin-top: 56px'" class="filter-controls">
+                    <select id="categoryFilter" class="category-filter">
+                        <option value="all">ALL CATEGORIES</option>
+                        <option value="hot-coffees">HOT COFFEES</option>
+                        <option value="iced-coffee">ICED COFFES</option>
+                        <option value="tea-more">TEA & MORE</option>
+                        <option value="light-bites">LIGHT BITES</option>
+                        <option value="desserts">DESSERTS</option>
+                    </select>
+                    
+                    <select id="priceSort" class="price-sort">
+                        <option value="default">SORT BY</option>
+                        <option value="price-low">PRICE: LOW TO HIGH</option>
+                        <option value="price-high">PRICE: HIGH TO LOW</option>
+                        <option value="name-az">NAME: A TO Z</option>
+                        <option value="name-za">NAME: Z TO A</option>
+                    </select>
+                </div>
+                <section class="menu-section" data-category="hot-coffees">
+                    <div class="section-header">
+                        <div class="brand-script">COFFEE LUNA </div>
+                        <h2 style="font-family: 'Playfair Display', serif;" class="section-title">OUR Hot Coffees</h2>
+                    </div>
+                    <div class="menu-layout">
+                        <div style="margin-top: -25px;" class="menu-image left">
+                            <img  src="assets/images/common/uiuiuiu.jpg"  style="width: 630px; height: 1140px; object-fit: cover;opacity: 0.5;transition: all 0.9s ease;">alt="Signature Coffee">
+                        </div>
+                        
+                        <div class="menu-items right">
+                            <div class="menu-item" data-base-price="4.50" data-name="signature espresso">
+                                <div class="item-info">
+                                    <h3  class="item-name">SIGNATURE ESPRESSO</h3>
+                                    <p class="item-description">Rich, bold espresso with notes of dark chocolate and caramel, expertly extracted from premium arabica beans</p>
+                                    <div class="size-options">
+                                        <button class="size-btn active" data-price="4.50">S</button>
+                                        <button class="size-btn" data-price="5.50">M</button>
+                                        <button class="size-btn" data-price="6.50">L</button>
+                                    </div>
+                                </div>
+                                <div class="item-price">$4.50</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="5.25" data-name="vanilla latte">
+                                <div class="item-info">
+                                    <h3 class="item-name">VANILLA LATTE</h3>
+                                    <p class="item-description">Smooth espresso with steamed milk and premium vanilla syrup, topped with delicate microfoam art</p>
+                                    <div class="size-options">
+                                        <button class="size-btn active" data-price="5.25">S</button>
+                                        <button class="size-btn" data-price="7.25">M</button>
+                                        <button class="size-btn" data-price="9.25">L</button>
+                                    </div>
+                                </div>
+                                <div class="item-price">$5.25</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="4.75" data-name="cappuccino">
+                                <div class="item-info">
+                                    <h3 class="item-name">CAPPUCCINO</h3>
+                                    <p class="item-description">Perfect balance of espresso, steamed milk, and velvety foam, dusted with cocoa powder</p>
+                                    <div class="size-options">
+                                        <button class="size-btn active" data-price="4.75">S</button>
+                                        <button class="size-btn" data-price="6.75">M</button>
+                                        <button class="size-btn" data-price="8.75">L</button>
+                                    </div>
+                                </div>
+                                <div class="item-price">$4.75</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="5.75" data-name="caramel macchiato">
+                                <div class="item-info">
+                                    <h3 class="item-name">CARAMEL MACCHIATO</h3>
+                                    <p class="item-description">Espresso marked with steamed milk and vanilla, finished with rich caramel drizzle</p>
+                                    <div class="size-options">
+                                        <button class="size-btn active" data-price="5.75">S</button>
+                                        <button class="size-btn" data-price="7.75">M</button>
+                                        <button class="size-btn" data-price="9.75">L</button>
+                                    </div>
+                                </div>
+                                <div class="item-price">$5.75</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="5.50" data-name="mocha">
+                                <div class="item-info">
+                                    <h3 class="item-name">MOCHA</h3>
+                                    <p class="item-description">Rich espresso blended with premium chocolate syrup and steamed milk, topped with whipped cream</p>
+                                    <div class="size-options">
+                                        <button class="size-btn active" data-price="5.50">S</button>
+                                        <button class="size-btn" data-price="8.00">M</button>
+                                        <button class="size-btn" data-price="9.50">L</button>
+                                    </div>
+                                </div>
+                                <div class="item-price">$5.50</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="4.95" data-name="flat white">
+                                <div class="item-info">
+                                    <h3 class="item-name">FLAT WHITE</h3>
+                                    <p class="item-description">Double shot espresso with microfoam steamed milk, creating a strong yet smooth coffee experience</p>
+                                    <div class="size-options">
+                                        <button class="size-btn active" data-price="4.95">S</button>
+                                        <button class="size-btn" data-price="6.95">M</button>
+                                        <button class="size-btn" data-price="8.95">L</button>
+                                    </div>
+                                </div>
+                                <div class="item-price">$4.95</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <section class="menu-section" data-category="iced-coffee">
+                    <div class="section-header">
+                        <div class="brand-script">COFFEE LUNA </div>
+                        <h2 style="font-family: 'Playfair Display', serif;" class="section-title">OUR ICED COFFEES</h2>
+                    </div>
+                    
+                    <div class="menu-layout reverse">
+                        <div class="menu-items left">
+                            <div class="menu-item" data-base-price="4.25" data-name="cold brew">
+                                <div class="item-info">
+                                    <h3 class="item-name">COLD BREW</h3>
+                                    <p class="item-description">Smooth, slow-steeped coffee served over ice, delivering a naturally sweet and less acidic flavor</p>
+                                    <div class="size-options">
+                                        <button class="size-btn active" data-price="4.25">S</button>
+                                        <button class="size-btn" data-price="5.25">M</button>
+                                        <button class="size-btn" data-price="6.25">L</button>
+                                    </div>
+                                </div>
+                                <div class="item-price">$7.25</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="5.50" data-name="nitro cold brew">
+                                <div class="item-info">
+                                    <h3 class="item-name">NITRO COLD BREW</h3>
+                                    <p class="item-description">Nitrogen-infused cold brew with a creamy texture and cascading effect, served on tap</p>
+                                    <div class="size-options">
+                                        <button class="size-btn active" data-price="5.50">S</button>
+                                        <button class="size-btn" data-price="6.50">M</button>
+                                        <button class="size-btn" data-price="7.50">L</button>
+                                    </div>
+                                </div>
+                                <div class="item-price">$8.50</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="4.75" data-name="iced latte">
+                                <div class="item-info">
+                                    <h3 class="item-name">ICED LATTE</h3>
+                                    <p class="item-description">Espresso shots poured over ice with cold milk, creating a refreshing and smooth coffee drink</p>
+                                    <div class="size-options">
+                                        <button class="size-btn active" data-price="4.75">S</button>
+                                        <button class="size-btn" data-price="5.75">M</button>
+                                        <button class="size-btn" data-price="6.75">L</button>
+                                    </div>
+                                </div>
+                                <div class="item-price">$7.75</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="5.75" data-name="iced caramel macchiato">
+                                <div class="item-info">
+                                    <h3 class="item-name">ICED CARAMEL MACCHIATO</h3>
+                                    <p class="item-description">Vanilla syrup, cold milk, espresso, and caramel drizzle over ice for a sweet treat</p>
+                                    <div class="size-options">
+                                        <button class="size-btn active" data-price="5.75">S</button>
+                                        <button class="size-btn" data-price="6.75">M</button>
+                                        <button class="size-btn" data-price="7.75">L</button>
+                                    </div>
+                                </div>
+                                <div class="item-price">$8.75</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="6.25" data-name="frappuccino">
+                                <div class="item-info">
+                                    <h3 class="item-name">FRAPPUCCINO</h3>
+                                    <p class="item-description">Blended ice coffee drink with your choice of flavors, topped with whipped cream</p>
+                                    <div class="size-options">
+                                        <button class="size-btn active" data-price="6.25">S</button>
+                                        <button class="size-btn" data-price="7.25">M</button>
+                                        <button class="size-btn" data-price="8.25">L</button>
+                                    </div>
+                                </div>
+                                <div class="item-price">$8.25</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="6.75" data-name="cold brew float">
+                                <div class="item-info">
+                                    <h3 class="item-name">COLD BREW FLOAT</h3>
+                                    <p class="item-description">Cold brew coffee topped with a scoop of vanilla ice cream for a unique dessert drink</p>
+                                    <div class="size-options">
+                                        <button class="size-btn active" data-price="6.75">S</button>
+                                        <button class="size-btn" data-price="7.75">M</button>
+                                        <button class="size-btn" data-price="8.75">L</button>
+                                    </div>
+                                </div>
+                                <div class="item-price">$6.75</div>
+                            </div>
+                        </div>
+        
+                        <div class="menu-image right">
+                            <img src="assets/images/common/jj.jpg" style="width: 630px; height: 1140px; object-fit: cover;opacity: 0.5;transition: all 0.9s ease;" alt="Iced Coffee">
+                        </div>
+                    </div>
+                </section>
+        
+                <section class="menu-section" data-category="tea-more">
+                    <div class="section-header">
+                        <div class="brand-script">COFFEE LUNA </div>
+                        <h2 style="font-family: 'Playfair Display', serif;"  class="section-title">OUR TEA & MORE</h2>
+                    </div>
+                    
+                    <div class="menu-layout">
+                        <div class="menu-image left">
+                            <img src="assets/images/common/hhh.jpg" style="width: 630px; height: 1140px; object-fit: cover;opacity: 0.5;transition: all 0.9s ease;" alt="Tea and Wellness">
+                        </div>
+                        
+                        <div class="menu-items right">
+                            <div class="menu-item" data-base-price="4.50" data-name="chai latte">
+                                <div class="item-info">
+                                    <h3 class="item-name">CHAI LATTE</h3>
+                                    <p class="item-description">Spiced tea blend with cinnamon, cardamom, and ginger, mixed with steamed milk and honey</p>
+                                    <div class="size-options">
+                                        <button class="size-btn active" data-price="4.50">S</button>
+                                        <button class="size-btn" data-price="5.50">M</button>
+                                        <button class="size-btn" data-price="6.50">L</button>
+                                    </div>
+                                </div>
+                                <div class="item-price">$7.50</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="4.75" data-name="green tea latte">
+                                <div class="item-info">
+                                    <h3 class="item-name">GREEN TEA LATTE</h3>
+                                    <p class="item-description">Premium matcha powder whisked with steamed milk, creating a creamy and earthy flavor</p>
+                                    <div class="size-options">
+                                        <button class="size-btn active" data-price="4.75">S</button>
+                                        <button class="size-btn" data-price="5.75">M</button>
+                                        <button class="size-btn" data-price="6.75">L</button>
+                                    </div>
+                                </div>
+                                <div class="item-price">$6.75</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="5.25" data-name="london fog">
+                                <div class="item-info">
+                                    <h3 class="item-name">LONDON FOG</h3>
+                                    <p class="item-description">Earl Grey tea with steamed milk, vanilla syrup, and a hint of lavender for a comforting drink</p>
+                                    <div class="size-options">
+                                        <button class="size-btn active" data-price="5.25">S</button>
+                                        <button class="size-btn" data-price="5.25">M</button>
+                                        <button class="size-btn" data-price="6.25">L</button>
+                                    </div>
+                                </div>
+                                <div class="item-price">$7.25</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="6.75" data-name="turmeric latte">
+                                <div class="item-info">
+                                    <h3 class="item-name">TURMERIC LATTE</h3>
+                                    <p class="item-description">Golden milk with turmeric, ginger, cinnamon, and steamed milk for a healthy and warming drink</p>
+                                    <div class="size-options">
+                                        <button class="size-btn active" data-price="6.75">S</button>
+                                        <button class="size-btn" data-price="8.00">M</button>
+                                        <button class="size-btn" data-price="9.75">L</button>
+                                    </div>
+                                </div>
+                                <div class="item-price">$5.75</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="4.25" data-name="hot chocolate">
+                                <div class="item-info">
+                                    <h3 class="item-name">HOT CHOCOLATE</h3>
+                                    <p class="item-description">Rich Belgian chocolate melted with steamed milk, topped with whipped cream and cocoa dust</p>
+                                    <div class="size-options">
+                                        <button class="size-btn active" data-price="4.25">S</button>
+                                        <button class="size-btn" data-price="6.25">M</button>
+                                        <button class="size-btn" data-price="8.25">L</button>
+                                    </div>
+                                </div>
+                                <div class="item-price">$6.25</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="5.75" data-name="earl grey supreme">
+                                <div class="item-info">
+                                    <h3 class="item-name">EARL GREY SUPREME</h3>
+                                    <p class="item-description">Classic bergamot tea with cornflower petals and lavender, creating an aromatic experience</p>
+                                    <div class="size-options">
+                                        <button class="size-btn active" data-price="5.75">S</button>
+                                        <button class="size-btn" data-price="7.75">M</button>
+                                        <button class="size-btn" data-price="9.75">L</button>
+                                    </div>
+                                </div>
+                                <div class="item-price">$5.75</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <section class="menu-section" data-category="light-bites">
+                    <div class="section-header">
+                        <div class="brand-script">COFFEE LUNA </div>
+                        <h2 style="font-family: 'Playfair Display', serif;"  class="section-title">OUR LIGHT BITES</h2>
+                    </div>
+                    
+                    <div class="menu-layout reverse">
+                        <div class="menu-items left">
+                            <div class="menu-item" data-base-price="8.50" data-name="avocado toast">
+                                <div class="item-info">
+                                    <h3 class="item-name">AVOCADO TOAST</h3>
+                                    <p class="item-description">Multigrain bread topped with smashed avocado, cherry tomatoes, feta cheese, and everything seasoning</p>
+                                </div>
+                                <div class="item-price">$10.50</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="9.75" data-name="grilled panini">
+                                <div class="item-info">
+                                    <h3 class="item-name">GRILLED PANINI</h3>
+                                    <p class="item-description">Turkey, swiss cheese, pesto, and sun-dried tomatoes on artisan bread, grilled to perfection</p>
+                                </div>
+                                <div class="item-price">$9.75</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="7.25" data-name="caesar salad">
+                                <div class="item-info">
+                                    <h3 class="item-name">CAESAR SALAD</h3>
+                                    <p class="item-description">Crisp romaine lettuce, parmesan cheese, croutons, and house-made caesar dressing</p>
+                                </div>
+                                <div class="item-price">$9.25</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="5.50" data-name="bagel with cream cheese">
+                                <div class="item-info">
+                                    <h3 class="item-name">BAGEL WITH CREAM CHEESE</h3>
+                                    <p class="item-description">Fresh baked everything bagel with herb cream cheese, capers, and red onion</p>
+                                </div>
+                                <div class="item-price">$8.50</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="10.25" data-name="quinoa bowl">
+                                <div class="item-info">
+                                    <h3 class="item-name">QUINOA BOWL</h3>
+                                    <p class="item-description">Quinoa with roasted vegetables, chickpeas, avocado, and tahini dressing</p>
+                                </div>
+                                <div class="item-price">$10.25</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="8.95" data-name="breakfast burrito">
+                                <div class="item-info">
+                                    <h3 class="item-name">BREAKFAST BURRITO</h3>
+                                    <p class="item-description">Scrambled eggs, bacon, cheese, potatoes, and salsa wrapped in a flour tortilla</p>
+                                </div>
+                                <div class="item-price">$8.95</div>
+                            </div>
+                        </div>
+        
+                        <div class="menu-image right">
+                            <img src="assets/images/common/ll.jpg" style="width: 630px; height: 1140px; object-fit: cover;opacity: 0.5;transition: all 0.9s ease;" alt="Light Bites">
+                        </div>
+                    </div>
+                </section>
+        
+                <section class="menu-section" data-category="desserts">
+                    <div class="section-header">
+                        <div class="brand-script">COFFEE LUNA </div>
+                        <h2 style="font-family: 'Playfair Display', serif;"  class="section-title">OUR DESSERT </h2>
+                    </div>
+                    
+                    <div class="menu-layout">
+                        <div class="menu-image left">
+                            <img src="assets/images/common/kk.jpg" style="width: 630px; height: 1140px; object-fit: cover;opacity: 0.5;transition: all 0.9s ease;" alt="Desserts">
+                        </div>
+                        
+                        <div class="menu-items right">
+                            <div class="menu-item" data-base-price="8.50" data-name="tiramisu">
+                                <div class="item-info">
+                                    <h3 class="item-name">TIRAMISU</h3>
+                                    <p class="item-description">Classic Italian dessert with coffee-soaked ladyfingers, mascarpone, and cocoa powder</p>
+                                </div>
+                                <div class="item-price">$8.50</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="9.95" data-name="cheesecake">
+                                <div class="item-info">
+                                    <h3 class="item-name">CHEESECAKE</h3>
+                                    <p class="item-description">Creamy New York style cheesecake with graham cracker crust and berry compote</p>
+                                </div>
+                                <div class="item-price">$9.95</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="10.75" data-name="lemon tart">
+                                <div class="item-info">
+                                    <h3 class="item-name">LEMON TART</h3>
+                                    <p class="item-description">Tangy lemon curd in a crisp pastry shell, topped with meringue and lemon zest</p>
+                                </div>
+                                <div class="item-price">$10.75</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="6.25" data-name="chocolate cake">
+                                <div class="item-info">
+                                    <h3 class="item-name">CHOCOLATE CAKE</h3>
+                                    <p class="item-description">Rich, moist chocolate cake with chocolate ganache and fresh berries</p>
+                                </div>
+                                <div class="item-price">$7.25</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="9.95" data-name="brownie">
+                                <div class="item-info">
+                                    <h3 class="item-name">BROWNIE</h3>
+                                    <p class="item-description">Fudgy chocolate brownie with walnuts, served warm with vanilla ice cream</p>
+                                </div>
+                                <div class="item-price">$9.95</div>
+                            </div>
+        
+                            <div class="menu-item" data-base-price="11.25" data-name="chocolate croissant">
+                                <div class="item-info">
+                                    <h3 class="item-name">CHOCOLATE CROISSANT</h3>
+                                    <p class="item-description">Buttery, flaky pastry filled with rich dark chocolate, baked fresh daily</p>
+                                </div>
+                                <div class="item-price">$11.25</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+              
+               
+            </div>
+        </section>
+        <!-- page Menu Section End -->
     </main>
-
-
     <!--  Footer Section Start -->
     <footer>
         <section id="footer-section">
