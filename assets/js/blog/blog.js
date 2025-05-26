@@ -1449,8 +1449,6 @@ document.getElementById("loadMore").addEventListener("click", function () {
     alert("More stories coming soon from Italy ☕🇮🇹");
   });
   
-  // .story-card elementlərinə kliklənəndə uyğun detail səhifəsinə yönləndirilir
-  // Məsələn: birinci karta klikləsən, detail1.html açılır
   const storyCards = document.querySelectorAll(".story-card");
   storyCards.forEach((card, index) => {
     card.addEventListener("click", () => {

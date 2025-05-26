@@ -266,20 +266,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
   
-    document.addEventListener("DOMContentLoaded", () => {
-      const popupVideos = document.querySelectorAll(".popup-video")
-      if (popupVideos.length && typeof magnificPopup === "function") {
-        popupVideos.forEach((video) => {
-          magnificPopup(video, {
-            type: "iframe",
-          })
-        })
-      } else if (window.magnificPopup) {
-        window.magnificPopup.init(".popup-video", {
-          type: "iframe",
-        })
-      }
-    })
+
   
     document.addEventListener("DOMContentLoaded", () => {
       const testimonialSliderContainer = document.querySelector(".testimonial-slider .swiper")
@@ -344,67 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })()
   
-  document.addEventListener("DOMContentLoaded", () => {
-    const videoPopupContainer = document.createElement("div")
-    videoPopupContainer.className = "video-popup-container"
-    videoPopupContainer.innerHTML = `
-      <div class="video-popup-backdrop"></div>
-      <div class="video-popup-content">
-        <button class="video-popup-close">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-        <div class="video-wrapper">
-          <video controls id="popup-video">
-            <source src="" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-    `
-    document.body.appendChild(videoPopupContainer)
-  
-    const popupVideo = document.getElementById("popup-video")
-    const closeButton = videoPopupContainer.querySelector(".video-popup-close")
-    const backdrop = videoPopupContainer.querySelector(".video-popup-backdrop")
-  
-    const videoPlayButtons = document.querySelectorAll(".video-play-button a")
-  
-    videoPlayButtons.forEach((button) => {
-      button.addEventListener("click", function (e) {
-        e.preventDefault()
-          const videoUrl = this.getAttribute("href")
-          popupVideo.querySelector("source").src = videoUrl
-        popupVideo.load()
-  
-        videoPopupContainer.classList.add("active")
-  
-        setTimeout(() => {
-          popupVideo.play()
-        }, 300)
-      })
-    })
-  
-    closeButton.addEventListener("click", () => {
-      popupVideo.pause()
-  
-      videoPopupContainer.classList.remove("active")
-  
-      setTimeout(() => {
-        popupVideo.querySelector("source").src = ""
-        popupVideo.load()
-      }, 300)
-    })
-  
-    backdrop.addEventListener("click", () => {
-      closeButton.click()
-    })
-  
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && videoPopupContainer.classList.contains("active")) {
-        closeButton.click()
-      }
-    })
-  })
+
   document.addEventListener("DOMContentLoaded", () => {
     const menuItems = document.querySelectorAll(".menu-list-item")
   
