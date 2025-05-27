@@ -330,27 +330,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
   })()
-  
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuItems = document.querySelectorAll(".menu-list-item")
   
-    const categoryButtons = document.querySelectorAll(".nav-item button")
-    let currentCategory = "all" 
-  
-    categoryButtons.forEach((button) => {
-      button.addEventListener("click", function () {
-        const targetId = this.getAttribute("data-bs-target").replace("#", "")
-        currentCategory = targetId
-  
-        document.querySelectorAll(".menu-size-options").forEach((el) => el.remove())
-  
-        if (currentCategory === "see-food") {
-          addSizeOptionsToHotCoffees()
-        }
-      })
-    })
-        })
 
     
   
