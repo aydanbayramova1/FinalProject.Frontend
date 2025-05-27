@@ -2577,3 +2577,16 @@ body{
 	}
 
 	
+#footer-section{
+margin-top: 5pc;
+}
+.sidebar-cta-footer a {
+    color: #121D23;
+    text-decoration: none; 
+    transition: color 0.3s ease; 
+  }
+  
+  .sidebar-cta-footer a:hover {
+    color: white; 
+    transition: all 0.5;
+  }
