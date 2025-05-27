@@ -325,63 +325,11 @@ document.addEventListener("DOMContentLoaded", () => {
             threshold: 0.5, 
           },
         )
-  
         observer.observe(skillsProgressBar)
       }
     })
   })()
   
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuItems = document.querySelectorAll(".menu-list-item")
-  
-    const categoryButtons = document.querySelectorAll(".nav-item button")
-    let currentCategory = "all" 
-  
-    categoryButtons.forEach((button) => {
-      button.addEventListener("click", function () {
-        const targetId = this.getAttribute("data-bs-target").replace("#", "")
-        currentCategory = targetId
-  
-        document.querySelectorAll(".menu-size-options").forEach((el) => el.remove())
-  
-        if (currentCategory === "see-food") {
-          addSizeOptionsToHotCoffees()
-        }
-      })
-    })
-  
-   
-  
-        const menuItemContent = menuItem.querySelector(".menu-item-content")
-        if (menuItemContent) {
-          menuItemContent.insertAdjacentHTML("beforebegin", sizeOptionsHTML)
-        }
-  
-        const sizeOptions = menuItem.querySelectorAll(".size-option")
-        sizeOptions.forEach((option) => {
-          option.addEventListener("click", function () {
-            sizeOptions.forEach((opt) => opt.classList.remove("active"))
-  
-            this.classList.add("active")
-  
-            const priceModifier = Number.parseFloat(this.getAttribute("data-price-modifier"))
-  
-            const newPrice = (basePrice + priceModifier).toFixed(2)
-  
-            priceElement.classList.add("price-change")
-  
-            setTimeout(() => {
-              priceElement.textContent = `$${newPrice}`
-  
-              setTimeout(() => {
-                priceElement.classList.remove("price-change")
-              }, 500)
-            }, 250)
-          })
-        })
-      })
-    
   
     const interactiveElement = document.querySelector(".interactive")
   

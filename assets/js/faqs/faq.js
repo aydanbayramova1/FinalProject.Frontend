@@ -266,20 +266,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
   
-    document.addEventListener("DOMContentLoaded", () => {
-      const popupVideos = document.querySelectorAll(".popup-video")
-      if (popupVideos.length && typeof magnificPopup === "function") {
-        popupVideos.forEach((video) => {
-          magnificPopup(video, {
-            type: "iframe",
-          })
-        })
-      } else if (window.magnificPopup) {
-        window.magnificPopup.init(".popup-video", {
-          type: "iframe",
-        })
-      }
-    })
+
   
     document.addEventListener("DOMContentLoaded", () => {
       const testimonialSliderContainer = document.querySelector(".testimonial-slider .swiper")
@@ -344,67 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })()
   
-  document.addEventListener("DOMContentLoaded", () => {
-    const videoPopupContainer = document.createElement("div")
-    videoPopupContainer.className = "video-popup-container"
-    videoPopupContainer.innerHTML = `
-      <div class="video-popup-backdrop"></div>
-      <div class="video-popup-content">
-        <button class="video-popup-close">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-        <div class="video-wrapper">
-          <video controls id="popup-video">
-            <source src="" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-    `
-    document.body.appendChild(videoPopupContainer)
-  
-    const popupVideo = document.getElementById("popup-video")
-    const closeButton = videoPopupContainer.querySelector(".video-popup-close")
-    const backdrop = videoPopupContainer.querySelector(".video-popup-backdrop")
-  
-    const videoPlayButtons = document.querySelectorAll(".video-play-button a")
-  
-    videoPlayButtons.forEach((button) => {
-      button.addEventListener("click", function (e) {
-        e.preventDefault()
-          const videoUrl = this.getAttribute("href")
-          popupVideo.querySelector("source").src = videoUrl
-        popupVideo.load()
-  
-        videoPopupContainer.classList.add("active")
-  
-        setTimeout(() => {
-          popupVideo.play()
-        }, 300)
-      })
-    })
-  
-    closeButton.addEventListener("click", () => {
-      popupVideo.pause()
-  
-      videoPopupContainer.classList.remove("active")
-  
-      setTimeout(() => {
-        popupVideo.querySelector("source").src = ""
-        popupVideo.load()
-      }, 300)
-    })
-  
-    backdrop.addEventListener("click", () => {
-      closeButton.click()
-    })
-  
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && videoPopupContainer.classList.contains("active")) {
-        closeButton.click()
-      }
-    })
-  })
+
   document.addEventListener("DOMContentLoaded", () => {
     const menuItems = document.querySelectorAll(".menu-list-item")
   
@@ -424,28 +351,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     })
   
-    function addSizeOptionsToHotCoffees() {
-      const hotCoffeeItems = document.querySelector("#see-food").querySelectorAll(".menu-list-item")
-  
-      hotCoffeeItems.forEach((menuItem) => {
-        const priceElement = menuItem.querySelector(".menu-item-title span")
-        if (!priceElement) return
-  
-        const basePrice = Number.parseFloat(priceElement.textContent.replace("$", ""))
-        if (isNaN(basePrice)) return
-  
-        if (menuItem.querySelector(".menu-size-options")) return
-  
-        const sizeOptionsHTML = `
-          <div class="menu-size-options">
-            <div class="menu-size-label">Size:</div>
-            <div class="size-options">
-              <div class="size-option active" data-size="s" data-price-modifier="0">S</div>
-              <div class="size-option" data-size="m" data-price-modifier="2">M</div>
-              <div class="size-option" data-size="l" data-price-modifier="4">L</div>
-            </div>
-          </div>
-        `
+   
   
         const menuItemContent = menuItem.querySelector(".menu-item-content")
         if (menuItemContent) {
@@ -475,7 +381,7 @@ document.addEventListener("DOMContentLoaded", () => {
           })
         })
       })
-    }
+    
   
     const interactiveElement = document.querySelector(".interactive")
   
@@ -558,7 +464,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (document.querySelector("#see-food.active")) {
       addSizeOptionsToHotCoffees()
     }
-  })
+
 
 
 
@@ -1283,12 +1189,9 @@ if (form && searchInput) {
 }
 
 const tabButtons = document.querySelectorAll('.nav-tabs button');
-
 tabButtons.forEach(btn => {
   btn.addEventListener('click', () => {
-    if (searchInput) {
-      searchInput.value = '';
-    }
+    searchInput.value = '';
     setTimeout(() => {
       const activeTab = document.querySelector('.tab-pane.active');
       const items = activeTab.querySelectorAll(".menu-item");
@@ -1296,38 +1199,3 @@ tabButtons.forEach(btn => {
     }, 200);
   });
 });
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  const items = document.querySelectorAll('.slide-in-left');
-
-  const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-          if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-          }
-      });
-  }, {
-      threshold: 0.2
-  });
-
-  items.forEach(item => {
-      observer.observe(item);
-  });
-});
-
-window.addEventListener("beforeunload", function () {
-  sessionStorage.setItem("scrollY", window.scrollY);
-});
-
-window.addEventListener("load", function () {
-  const scrollY = sessionStorage.getItem("scrollY");
-  if (scrollY !== null) {
-      setTimeout(() => {
-          window.scrollTo(0, parseInt(scrollY));
-      }, 100);
-  }
-});
-
-
