@@ -2165,15 +2165,15 @@ header.main-header .header-sticky.active {
 }
 
 #footer-section .footer-contact-detail h3 {
-    font-family: #C9A581;
+    font-family: #E4CCB4;
     font-size: 30px;
-    color: #C9A581;
+    color: #E4CCB4;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
 
 #footer-section .footer-contact-detail p {
-    font-family: #C9A581;
+    font-family: #E4CCB4;
     font-size: 24px;
     line-height: 1.4em;
     color: #FFFFFF;
@@ -2235,7 +2235,7 @@ header.main-header .header-sticky.active {
 
 #footer-section .footer-social-links ul li a {
     color: #FFFFFF;
-    background-color: #C9A581;
+    background-color: #E4CCB4;
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -2345,8 +2345,6 @@ header.main-header .header-sticky.active {
         margin-top: 30px;
     }
 }
-
-
 
 
 
@@ -2817,7 +2815,6 @@ header.main-header .header-sticky.active {
     transform: translateY(-1px);
   }
   
-  /* Modal Styles */
   .modal {
     display: none;
     position: fixed;
@@ -2937,7 +2934,6 @@ header.main-header .header-sticky.active {
     margin: 0;
   }
   
-  /* Loading Modal */
   .loading-content {
     text-align: center;
     padding: 3rem;
@@ -2994,6 +2990,9 @@ header.main-header .header-sticky.active {
       margin: 1rem;
     }
   
-   
+    .qr-section canvas {
+      width: 150px;
+      height: 150px;
+    }
   }
   

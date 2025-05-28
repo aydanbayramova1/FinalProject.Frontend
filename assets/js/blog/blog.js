@@ -1407,3 +1407,25 @@ document.getElementById("loadMore").addEventListener("click", function () {
     });
   });
   
+
+  document.addEventListener("DOMContentLoaded", function () {
+    gsap.registerPlugin(ScrollTrigger);
+  
+    const titles = document.querySelectorAll(".text-anime-style-3, .section-title");
+  
+    titles.forEach(title => {
+        gsap.from(title, {
+            scrollTrigger: {
+                trigger: title,
+                start: "top 80%",
+                toggleActions: "play none none none"
+            },
+            x: -100,
+            opacity: 0,
+            duration: 1.2,
+            ease: "power3.out"
+        });
+    });
+  });
+
+  

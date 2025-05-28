@@ -13,6 +13,8 @@
     <link href="assets/css/common/bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="assets/css/common/slicknav.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/common/animate.css">
+    <link rel="stylesheet" href="assets/css/common/mousecursor.css">
     <link rel="stylesheet" href="assets/css/common/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/common/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=ancizar-serif@400,700&display=swap">
@@ -41,8 +43,8 @@
                         <div class="col-md-9">
                             <div class="topbar-contact-info">
                                 <ul>
-                                    <li><a href="mailto:info@caffeluna.com"><img
-                                                src="assets/images/common/icon-mail.svg" alt="" />info@caffeluna.com</a>
+                                    <li><a href="mailto:caffeluna67@gmail.com"><img
+                                                src="assets/images/common/icon-mail.svg" alt="" />caffeluna67@gmail.com</a>
                                     </li>
                                     <li><img src="assets/images/common/icon-location.svg" alt="" />Marchesi 1824
                                         ViaMontenapoleone 9, 20121 Milano Lombardia, Italy</li>
@@ -54,8 +56,12 @@
                                 <ul>
                                     <li><a href="https://www.instagram.com/_caffe.luna_?igsh=MThmeGtkajQ1cTJ4eQ=="><i
                                                 class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-dribbble"></i></a></li>
+                                    <li><a href="https://www.facebook.com/share/16auhXoD7x/?mibextid=wwXIfr"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                    <li>
+                                        <a href="https://wa.me/994513153684?text=Hello!%20Welcome%20to%20our%20Coffee%20Shop%20%E2%98%95%20How%20can%20we%20help%20you%3F" target="_blank">
+                                          <i class="fa-brands fa-whatsapp"></i>
+                                        </a>
+                                      </li>
                                 </ul>
                             </div>
                         </div>
@@ -199,9 +205,10 @@
             </div>
         </section>
         <!-- Scrolling Ticker Section End -->
+
+        <!--  reservation Section start -->
         <section id="reservation-section">
             <div class="reservation-container">
-
                 <div class="header">
                     <h1 class="main-title">CAFFE LUNA</h1>
                     <p class="subtitle">Make Your Reservation</p>
@@ -235,8 +242,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="phone" class="label">Telefon Nömrəsi * (SMS bildirişləri
-                                            üçün)</label>
+                                        <label for="phone" class="label"> Phone Number * (for SMS notifications)</label>
                                         <input type="tel" id="phone" class="input" placeholder="+994 XX XXX XX XX"
                                             required>
                                         <span class="error-msg" id="phoneError"></span>
@@ -281,7 +287,7 @@
                                     </button>
 
                                     <div id="cartDisplay" class="cart-display" style="display: none;">
-                                        <h3 class="cart-title">🛒 Selected Items</h3>
+                                        <h3 class="cart-title">Selected Items</h3>
                                         <div id="cartItems" class="cart-items"></div>
                                         <div class="cart-total">
                                             <div class="total-row">
@@ -306,7 +312,7 @@
                                     <div id="paymentSection" class="payment-section" style="display: none;">
                                         <div class="card payment-card">
                                             <div class="card-header">
-                                                <h3 class="card-title">💳 Payment Details</h3>
+                                                <h3 class="card-title"> Payment Details</h3>
                                             </div>
                                             <div class="card-content">
                                                 <div class="form-group">
@@ -385,7 +391,7 @@
                                                 $6.50</button>
                                         </div>
                                         <button class="add-to-cart-btn"
-                                            onclick="addToCart('SIGNATURE ESPRESSO', 4.50, 'espresso')">➕ Add to
+                                            onclick="addToCart('SIGNATURE ESPRESSO', 4.50, 'espresso')"> + Add to
                                             Cart</button>
                                     </div>
 
@@ -405,7 +411,7 @@
                                                 - $9.25</button>
                                         </div>
                                         <button class="add-to-cart-btn"
-                                            onclick="addToCart('VANILLA LATTE', 5.25, 'vanilla-latte')">➕ Add to
+                                            onclick="addToCart('VANILLA LATTE', 5.25, 'vanilla-latte')"> + Add to
                                             Cart</button>
                                     </div>
 
@@ -425,7 +431,7 @@
                                                 $8.75</button>
                                         </div>
                                         <button class="add-to-cart-btn"
-                                            onclick="addToCart('CAPPUCCINO', 4.75, 'cappuccino')">➕ Add to Cart</button>
+                                            onclick="addToCart('CAPPUCCINO', 4.75, 'cappuccino')">+ Add to Cart</button>
                                     </div>
 
                                     <div class="menu-item" data-category="hot-coffees">
@@ -444,8 +450,7 @@
                                                 onclick="selectSize(this, 'caramel-macchiato', 9.75)">L - $9.75</button>
                                         </div>
                                         <button class="add-to-cart-btn"
-                                            onclick="addToCart('CARAMEL MACCHIATO', 5.75, 'caramel-macchiato')">➕ Add to
-                                            Cart</button>
+                                            onclick="addToCart('CARAMEL MACCHIATO', 5.75, 'caramel-macchiato')">+ Add to Cart</button>
                                     </div>
 
                                     <div class="menu-item" data-category="hot-coffees">
@@ -463,8 +468,7 @@
                                             <button class="size-btn" onclick="selectSize(this, 'mocha', 9.50)">L -
                                                 $9.50</button>
                                         </div>
-                                        <button class="add-to-cart-btn" onclick="addToCart('MOCHA', 5.50, 'mocha')">➕
-                                            Add to Cart</button>
+                                        <button class="add-to-cart-btn" onclick="addToCart('MOCHA', 5.50, 'mocha')">+ Add to Cart</button>
                                     </div>
 
                                     <div class="menu-item" data-category="hot-coffees">
@@ -483,7 +487,7 @@
                                                 $8.95</button>
                                         </div>
                                         <button class="add-to-cart-btn"
-                                            onclick="addToCart('FLAT WHITE', 4.95, 'flat-white')">➕ Add to Cart</button>
+                                            onclick="addToCart('FLAT WHITE', 4.95, 'flat-white')">+ Add to Cart</button>
                                     </div>
 
 
@@ -503,7 +507,7 @@
                                                 $6.25</button>
                                         </div>
                                         <button class="add-to-cart-btn"
-                                            onclick="addToCart('COLD BREW', 4.25, 'cold-brew')">➕ Add to Cart</button>
+                                            onclick="addToCart('COLD BREW', 4.25, 'cold-brew')">+ Add to Cart</button>
                                     </div>
 
                                     <div class="menu-item" data-category="iced-coffee">
@@ -522,8 +526,7 @@
                                                 onclick="selectSize(this, 'nitro-cold-brew', 7.50)">L - $7.50</button>
                                         </div>
                                         <button class="add-to-cart-btn"
-                                            onclick="addToCart('NITRO COLD BREW', 5.50, 'nitro-cold-brew')">➕ Add to
-                                            Cart</button>
+                                            onclick="addToCart('NITRO COLD BREW', 5.50, 'nitro-cold-brew')">+ Add to Cart</button>
                                     </div>
 
                                     <div class="menu-item" data-category="iced-coffee">
@@ -542,7 +545,7 @@
                                                 $6.75</button>
                                         </div>
                                         <button class="add-to-cart-btn"
-                                            onclick="addToCart('ICED LATTE', 4.75, 'iced-latte')">➕ Add to Cart</button>
+                                            onclick="addToCart('ICED LATTE', 4.75, 'iced-latte')">+ Add to Cart</button>
                                     </div>
 
                                     <div class="menu-item" data-category="tea-more">
@@ -561,7 +564,7 @@
                                                 $6.50</button>
                                         </div>
                                         <button class="add-to-cart-btn"
-                                            onclick="addToCart('CHAI LATTE', 4.50, 'chai-latte')">➕ Add to Cart</button>
+                                            onclick="addToCart('CHAI LATTE', 4.50, 'chai-latte')">+ Add to Cart</button>
                                     </div>
 
                                     <div class="menu-item" data-category="tea-more">
@@ -580,8 +583,7 @@
                                                 onclick="selectSize(this, 'green-tea-latte', 6.75)">L - $6.75</button>
                                         </div>
                                         <button class="add-to-cart-btn"
-                                            onclick="addToCart('GREEN TEA LATTE', 4.75, 'green-tea-latte')">➕ Add to
-                                            Cart</button>
+                                            onclick="addToCart('GREEN TEA LATTE', 4.75, 'green-tea-latte')">+ Add to Cart</button>
                                     </div>
 
                                     <div class="menu-item" data-category="tea-more">
@@ -600,8 +602,7 @@
                                                 - $8.25</button>
                                         </div>
                                         <button class="add-to-cart-btn"
-                                            onclick="addToCart('HOT CHOCOLATE', 4.25, 'hot-chocolate')">➕ Add to
-                                            Cart</button>
+                                            onclick="addToCart('HOT CHOCOLATE', 4.25, 'hot-chocolate')">+ Add to Cart</button>
                                     </div>
 
 
@@ -613,8 +614,7 @@
                                         <p class="menu-item-description">Multigrain bread topped with smashed avocado,
                                             cherry tomatoes, feta cheese, and everything seasoning</p>
                                         <button class="add-to-cart-btn"
-                                            onclick="addToCart('AVOCADO TOAST', 10.50, 'avocado-toast')">➕ Add to
-                                            Cart</button>
+                                            onclick="addToCart('AVOCADO TOAST', 10.50, 'avocado-toast')">+ Add to Cart</button>
                                     </div>
 
                                     <div class="menu-item" data-category="light-bites">
@@ -625,8 +625,7 @@
                                         <p class="menu-item-description">Turkey, swiss cheese, pesto, and sun-dried
                                             tomatoes on artisan bread, grilled to perfection</p>
                                         <button class="add-to-cart-btn"
-                                            onclick="addToCart('GRILLED PANINI', 9.75, 'grilled-panini')">➕ Add to
-                                            Cart</button>
+                                            onclick="addToCart('GRILLED PANINI', 9.75, 'grilled-panini')">+ Add to Cart</button>
                                     </div>
 
                                     <div class="menu-item" data-category="light-bites">
@@ -637,8 +636,7 @@
                                         <p class="menu-item-description">Crisp romaine lettuce, parmesan cheese,
                                             croutons, and house-made caesar dressing</p>
                                         <button class="add-to-cart-btn"
-                                            onclick="addToCart('CAESAR SALAD', 9.25, 'caesar-salad')">➕ Add to
-                                            Cart</button>
+                                            onclick="addToCart('CAESAR SALAD', 9.25, 'caesar-salad')">+ Add to Cart</button>
                                     </div>
 
                                     <div class="menu-item" data-category="light-bites">
@@ -649,8 +647,7 @@
                                         <p class="menu-item-description">Quinoa with roasted vegetables, chickpeas,
                                             avocado, and tahini dressing</p>
                                         <button class="add-to-cart-btn"
-                                            onclick="addToCart('QUINOA BOWL', 10.25, 'quinoa-bowl')">➕ Add to
-                                            Cart</button>
+                                            onclick="addToCart('QUINOA BOWL', 10.25, 'quinoa-bowl')">+ Add to Cart</button>
                                     </div>
 
                                     <div class="menu-item" data-category="desserts">
@@ -661,7 +658,7 @@
                                         <p class="menu-item-description">Classic Italian dessert with coffee-soaked
                                             ladyfingers, mascarpone, and cocoa powder</p>
                                         <button class="add-to-cart-btn"
-                                            onclick="addToCart('TIRAMISU', 8.50, 'tiramisu')">➕ Add to Cart</button>
+                                            onclick="addToCart('TIRAMISU', 8.50, 'tiramisu')">+ Add to Cart</button>
                                     </div>
 
                                     <div class="menu-item" data-category="desserts">
@@ -672,7 +669,7 @@
                                         <p class="menu-item-description">Creamy New York style cheesecake with graham
                                             cracker crust and berry compote</p>
                                         <button class="add-to-cart-btn"
-                                            onclick="addToCart('CHEESECAKE', 9.95, 'cheesecake')">➕ Add to Cart</button>
+                                            onclick="addToCart('CHEESECAKE', 9.95, 'cheesecake')">+ Add to Cart</button>
                                     </div>
 
                                     <div class="menu-item" data-category="desserts">
@@ -683,8 +680,7 @@
                                         <p class="menu-item-description">Rich, moist chocolate cake with chocolate
                                             ganache and fresh berries</p>
                                         <button class="add-to-cart-btn"
-                                            onclick="addToCart('CHOCOLATE CAKE', 7.25, 'chocolate-cake')">➕ Add to
-                                            Cart</button>
+                                            onclick="addToCart('CHOCOLATE CAKE', 7.25, 'chocolate-cake')">+ Add to Cart</button>
                                     </div>
 
                                     <div class="menu-item" data-category="desserts">
@@ -695,7 +691,7 @@
                                         <p class="menu-item-description">Fudgy chocolate brownie with walnuts, served
                                             warm with vanilla ice cream</p>
                                         <button class="add-to-cart-btn"
-                                            onclick="addToCart('BROWNIE', 9.95, 'brownie')">➕ Add to Cart</button>
+                                            onclick="addToCart('BROWNIE', 9.95, 'brownie')">+ Add to Cart</button>
                                     </div>
 
                                 </div>
@@ -740,6 +736,7 @@
                 </div>
             </div>
         </section>
+        <!--  reservation Section end -->
 
 
     </main>
@@ -757,8 +754,8 @@
                                 </div>
                                 <div class="footer-contact-detail">
                                     <h3>contact us</h3>
-                                    <p>T. <a href="tel:50 778 78 90">50 778 78 90</a></p>
-                                    <p>M. <a href="mailto:info@caffeluna.com">info@caffeluna.com</a></p>
+                                    <p>T. <a href="https://wa.me/994513153684" target="_blank">+994 51 315 36 84</a></p>
+                                    <p>M. <a href="mailto:caffeluna67@gmail.com">caffeluna67@gmail.com</a></p>
                                 </div>
                                 <div class="footer-contact-button">
                                     <a href="contact.html" class="btn-default btn-highlighted">contact us</a>
@@ -810,7 +807,11 @@
                                     <li><a href="https://www.instagram.com/_caffe.luna_?igsh=MThmeGtkajQ1cTJ4eQ=="><i
                                                 class="fa-brands fa-instagram"></i></a></li>
                                     <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-dribbble"></i></a></li>
+                                    <li>
+                                        <a href="https://wa.me/994513153684?text=Hello!%20Welcome%20to%20our%20Coffee%20Shop%20%E2%98%95%20How%20can%20we%20help%20you%3F" target="_blank">
+                                          <i class="fa-brands fa-whatsapp"></i>
+                                        </a>
+                                      </li>
                                 </ul>
                             </div>
                         </div>

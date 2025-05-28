@@ -1519,7 +1519,7 @@ window.cancelReservationByEmail = function(reservationId) {
 
           if (isFormComplete) {
             toggleBtn.disabled = false
-            toggleBtn.textContent = "☕ Select Menu Items"
+            toggleBtn.textContent = " Select Menu Items"
             toggleBtn.style.opacity = "1"
             toggleBtn.style.cursor = "pointer"
             toggleBtn.style.backgroundColor = "#e4ccb4"
@@ -1529,7 +1529,7 @@ window.cancelReservationByEmail = function(reservationId) {
             console.log(" Form complete! Menu button enabled")
           } else {
             toggleBtn.disabled = true
-            toggleBtn.textContent = "☕ Complete form first"
+            toggleBtn.textContent = " Complete form first"
             toggleBtn.style.opacity = "0.5"
             toggleBtn.style.cursor = "not-allowed"
             toggleBtn.style.backgroundColor = "#666"
@@ -1702,7 +1702,7 @@ function showAlternativeTimes(selectedDate, guests, tableSelect) {
     const alternativeOptions = availableAlternatives
       .slice(0, 3)
       .map(alt => 
-        `<option value="" disabled>💡 Available at ${alt.time}: ${alt.tables.map(t => t.name).join(", ")}</option>`
+        `<option value="" disabled> Available at ${alt.time}: ${alt.tables.map(t => t.name).join(", ")}</option>`
       )
       .join("")
     
@@ -1766,8 +1766,8 @@ ${reservationData.cart.length > 0 ? ` Əvvəlcədən sifariş: ${reservationData
 
  Ləğv qaydası: Rezervasiyanızdan 2 saat əvvəl pulsuz ləğv edə bilərsiniz.
 
-📍 Ünvan: Nizami küç. 123, Bakı
-📞 Əlaqə: +994 12 345 67 89
+ Ünvan: Nizami küç. 123, Bakı
+ Əlaqə: +994 12 345 67 89
 
 Caffe Luna seçdiyiniz üçün təşəkkür edirik! 
 `.trim()
@@ -1776,7 +1776,7 @@ Caffe Luna seçdiyiniz üçün təşəkkür edirik!
   
   console.log(`
   ═══════════════════════════════════════
-  📱 SMS SENT TO: ${reservationData.phone}
+   SMS SENT TO: ${reservationData.phone}
   ═══════════════════════════════════════
   ${smsMessage}
   ═══════════════════════════════════════
@@ -1809,7 +1809,7 @@ function sendConfirmationEmail(reservationData) {
                 <p><strong>Number of Guests:</strong> ${reservationData.guests}</p>
                 
                 ${reservationData.cart.length > 0 ? `
-                <h4>🛒 Pre-ordered Items:</h4>
+                <h4> Pre-ordered Items:</h4>
                 <ul>
                     ${reservationData.cart.map(item => 
                         `<li>${item.name} ${item.size ? `(${item.size})` : ''} x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}</li>`
@@ -1848,7 +1848,7 @@ function sendConfirmationEmail(reservationData) {
   console.log("Email Content Generated")
   console.log(`
   ═══════════════════════════════════════
-  📧 EMAIL SENT TO: ${reservationData.email}
+   EMAIL SENT TO: ${reservationData.email}
   SUBJECT: Caffe Luna - Reservation Confirmed (${reservationData.id})
   ═══════════════════════════════════════
   `)
@@ -1857,7 +1857,7 @@ function sendConfirmationEmail(reservationData) {
 }
 
 function sendCancellationSMS(reservationData) {
-  console.log("📱 Sending cancellation SMS to:", reservationData.phone)
+  console.log(" Sending cancellation SMS to:", reservationData.phone)
   
   const smsMessage = `
 CAFFE LUNA Reservation Cancelled
@@ -1874,12 +1874,12 @@ We're sorry to see you go. Feel free to make a new reservation anytime!
  Contact: +1 (555) 123-4567
  Website: www.caffeluna.com
 
-Thank you for choosing Caffe Luna! ☕
+Thank you for choosing Caffe Luna! 
   `.trim()
 
   console.log(`
   ═══════════════════════════════════════
-  📱 CANCELLATION SMS SENT TO: ${reservationData.phone}
+  CANCELLATION SMS SENT TO: ${reservationData.phone}
   ═══════════════════════════════════════
   ${smsMessage}
   ═══════════════════════════════════════
@@ -1889,7 +1889,7 @@ Thank you for choosing Caffe Luna! ☕
 }
 
 function sendCancellationEmail(reservationData) {
-  console.log("📧 Sending cancellation email to:", reservationData.email)
+  console.log("Sending cancellation email to:", reservationData.email)
   
   const emailContent = `
 <!DOCTYPE html>
@@ -1926,7 +1926,7 @@ function sendCancellationEmail(reservationData) {
             
             <p>We're sorry to see you go! Feel free to make a new reservation anytime.</p>
             
-            <h3>📍 Contact Us</h3>
+            <h3> Contact Us</h3>
             <p>
                 <strong>Phone:</strong> +1 (555) 123-4567<br>
                 <strong>Email:</strong> info@caffeluna.com<br>
@@ -2079,7 +2079,7 @@ function showQRCodeFallback(canvas, reservationData) {
       }
       
       <div class="notification-confirmation" style="background-color: #1f2a1f; border: 1px solid #4caf50; border-radius: 8px; padding: 1rem; margin: 1rem 0;">
-        <h4 style="color: #4caf50; margin-bottom: 0.5rem;">📧📱 Notifications Sent</h4>
+        <h4 style="color: #4caf50; margin-bottom: 0.5rem;"> Notifications Sent</h4>
         <p style="margin: 0.25rem 0;">Confirmation email sent to: ${reservationData.email}</p>
         <p style="margin: 0.25rem 0;"> SMS confirmation sent to: ${reservationData.phone}</p>
       </div>
@@ -2179,3 +2179,23 @@ function showQRCodeFallback(canvas, reservationData) {
         console.log("JavaScript loaded in HEAD successfully!")
         console.log("toggleMenu function defined:", typeof window.toggleMenu)
   
+
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.registerPlugin(ScrollTrigger);
+          
+            const titles = document.querySelectorAll(".text-anime-style-3, .section-title");
+          
+            titles.forEach(title => {
+                gsap.from(title, {
+                    scrollTrigger: {
+                        trigger: title,
+                        start: "top 80%",
+                        toggleActions: "play none none none"
+                    },
+                    x: -100,
+                    opacity: 0,
+                    duration: 1.2,
+                    ease: "power3.out"
+                });
+            });
+          });
