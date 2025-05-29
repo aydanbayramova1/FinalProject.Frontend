@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/897e067933.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Nunito", sans-serif;
+      margin: 0;
+    }
+
+    .container {
+      height: 100vh;
+      background-image: url('./assets/images/common/coffeshop1234.jpg');
+      background-size: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .modal {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 60px;
+      background: rgba(51, 51, 51, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: 0.4s;
+    }
+
+    .modal.is-open {
+      height: 100%;
+      background: rgba(51, 51, 51, 0.85);
+    }
+
+    .modal-container {
+      display: flex;
+      max-width: 720px;
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.6s;
+      background: #fff;
+      transform: translateY(100px) scale(0.4);
+    }
+
+    .modal.is-open .modal-container {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-left {
+      padding: 60px 30px 20px;
+      background: #fff;
+      flex: 1.5;
+      opacity: 0;
+      transform: translateY(80px);
+      transition: 0.5s;
+    }
+
+    .modal.is-open .modal-left {
+      transform: translateY(0);
+      opacity: 1;
+      transition-delay: 0.1s;
+    }
+
+    .modal-right {
+      flex: 2;
+      font-size: 0;
+      overflow: hidden;
+      display: block;
+    }
+
+    .modal-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(2);
+      transition: 1.2s;
+    }
+
+    .modal.is-open .modal-right img {
+      transform: scale(1);
+    }
+
+    .modal-title {
+      font-size: 26px;
+      margin: 0;
+      font-weight: 400;
+      color: #55311c;
+    }
+
+    .modal-desc {
+      margin: 6px 0 30px 0;
+    }
+
+    .input-block {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .input-block input {
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .input-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #8c7569;
+    }
+
+    .modal-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-buttons a {
+      color: #333;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .input-button {
+      padding: 10px 20px;
+      background: #8c7569;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .input-button:hover {
+      background: #55311c;
+    }
+
+    .sign-up {
+      margin-top: 60px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .sign-up a {
+      color: #8c7569;
+    }
+
+    .modal-button {
+      margin-top: 10px;
+      color: #8c7569;
+      background: #fff;
+      padding: 10px 40px;
+      border: none;
+      border-radius: 30px;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.16);
+    }
+
+    .modal-button:hover {
+      background: #f0f0f0;
+    }
+
+    .icon-button {
+      position: absolute;
+      right: 10px;
+      top: 12px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .scroll-down {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      color: white;
+      font-weight: 500;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .scroll-down svg {
+      margin-top: 16px;
+      width: 52px;
+      fill: currentColor;
+    }
+
+    .toggle-password {
+      position: absolute;
+      top: 50%;
+      right: 12px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #8c7569;
+      font-size: 16px;
+    }
+
+    .error-message {
+      color: #e74c3c;
+      font-size: 12px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .success-message {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    @media(max-width: 750px) {
+      .modal-container {
+        flex-direction: column;
+        width: 90%;
+      }
+
+      .modal-right {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scroll-down">
+    EVERY DAY THAT STARTS WITH COFFEE IS A BEAUTIFUL DAY
+  </div>
+
+  <div class="container"></div>
+
+  <div class="modal" id="modal">
+    <div class="modal-container">
+      <div class="modal-left">
+        <h1 class="modal-title">Welcome!</h1>
+        <p class="modal-desc">Fuel your day with warmth and flavor.</p>
+
+        <div class="input-block">
+          <label for="emailorusername" class="input-label">Email Or UserName</label>
+          <input type="text" id="emailorusername" placeholder="Email Or UserName">
+        </div>
+
+        <div class="input-block">
+          <label for="password" class="input-label">Password</label>
+          <input type="password" id="password" placeholder="Password">
+          <span class="toggle-password" id="togglePassword"><i class="fas fa-eye"></i></span>
+        </div>
+
+        <div class="modal-buttons">
+          <a href="#" onclick="openForgotPassword()">Forgot your password?</a>
+          <button class="input-button">Login</button>
+        </div>
+
+        <p class="sign-up">Don't have an account? <a href="register.html">Sign up now</a></p>
+      </div>
+
+      <div class="modal-right">
+        <img src="assets/images/common/coffeshop.jpg" alt="">
+      </div>
+
+      <button class="icon-button close-button" id="closeModal">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+          <path d="M 25 3 C 12.9 3 3 12.9 3 25s9.9 22 22 22 22-9.9 22-22S37.1 3 25 3zm-8 13l8 8 8-8 2 2-8 8 8 8-2 2-8-8-8 8-2-2 8-8-8-8 2-2z"/>
+        </svg>
+      </button>
+    </div>
+
+    <button class="modal-button" id="openModal">Click here to login</button>
+  </div>
+
+  <div class="modal" id="forgotPasswordModal" style="display: none;">
+    <div class="modal-container">
+      <div class="modal-left">
+        <h1 class="modal-title">Reset Password</h1>
+        <p class="modal-desc">Enter your email to receive a reset link.</p>
+
+        <div class="input-block">
+          <label class="input-label">Email</label>
+          <input type="email" id="resetEmail" placeholder="Enter your email">
+        </div>
+
+        <button class="input-button" onclick="sendResetLink()">Send Link</button>
+        <button class="input-button" onclick="closeForgotPassword()">Cancel</button>
+      </div>
+      <div class="modal-right">
+        <img src="assets/images/common/coffeshop.jpg" alt="Coffee shop">
+      </div>
+      <button class="icon-button close-button" onclick="closeForgotPassword()">
+        <svg viewBox="0 0 50 50"><path d="M 25 3 C 12.9 3 3 12.9 3 25s9.9 22 22 22 22-9.9 22-22S37.1 3 25 3zm-8 13l8 8 8-8 2 2-8 8 8 8-2 2-8-8-8 8-2-2 8-8-8-8 2-2z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="modal" id="resetPasswordModal" style="display: none;">
+    <div class="modal-container">
+      <div class="modal-left">
+        <h1 class="modal-title">Create New Password</h1>
+        <p class="modal-desc">Please enter your new password below.</p>
+
+        <div class="success-message" id="passwordResetSuccess">
+          Password reset successfully! You can now login with your new password.
+        </div>
+
+        <div class="input-block">
+          <label class="input-label">New Password</label>
+          <input type="password" id="newPassword" placeholder="Enter new password">
+          <span class="toggle-password" id="toggleNewPassword"><i class="fas fa-eye"></i></span>
+        </div>
+
+        <div class="input-block">
+          <label class="input-label">Confirm Password</label>
+          <input type="password" id="confirmPassword" placeholder="Confirm new password">
+          <span class="toggle-password" id="toggleConfirmPassword"><i class="fas fa-eye"></i></span>
+          <div class="error-message" id="passwordError">Passwords do not match!</div>
+        </div>
+
+        <button class="input-button" onclick="resetPassword()">Reset Password</button>
+        <button class="input-button" onclick="closeResetPassword()">Cancel</button>
+      </div>
+      <div class="modal-right">
+        <img src="assets/images/common/coffeshop.jpg" alt="Coffee shop">
+      </div>
+      <button class="icon-button close-button" onclick="closeResetPassword()">
+        <svg viewBox="0 0 50 50"><path d="M 25 3 C 12.9 3 3 12.9 3 25s9.9 22 22 22 22-9.9 22-22S37.1 3 25 3zm-8 13l8 8 8-8 2 2-8 8 8 8-2 2-8-8-8 8-2-2 8-8-8-8 2-2z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const openModal = document.getElementById('openModal');
+    const closeModal = document.getElementById('closeModal');
+    const forgotPasswordModal = document.getElementById('forgotPasswordModal');
+    const resetPasswordModal = document.getElementById('resetPasswordModal');
+
+    openModal.addEventListener('click', () => {
+      modal.classList.add('is-open');
+    });
+
+    closeModal.addEventListener('click', () => {
+      modal.classList.remove('is-open');
+    });
+
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+
+    togglePassword.addEventListener('click', () => {
+      togglePasswordVisibility(passwordInput, togglePassword);
+    });
+
+    const toggleNewPassword = document.getElementById('toggleNewPassword');
+    const newPasswordInput = document.getElementById('newPassword');
+
+    toggleNewPassword.addEventListener('click', () => {
+      togglePasswordVisibility(newPasswordInput, toggleNewPassword);
+    });
+
+    const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
+
+    toggleConfirmPassword.addEventListener('click', () => {
+      togglePasswordVisibility(confirmPasswordInput, toggleConfirmPassword);
+    });
+
+    function togglePasswordVisibility(inputField, toggleIcon) {
+      const type = inputField.getAttribute('type') === 'password' ? 'text' : 'password';
+      inputField.setAttribute('type', type);
+      toggleIcon.innerHTML = type === 'password'
+        ? '<i class="fas fa-eye"></i>'
+        : '<i class="fas fa-eye-slash"></i>';
+    }
+
+    function openForgotPassword() {
+      modal.classList.remove('is-open');
+      forgotPasswordModal.style.display = 'flex';
+      setTimeout(() => {
+        forgotPasswordModal.classList.add('is-open');
+      }, 100);
+    }
+
+    function closeForgotPassword() {
+      forgotPasswordModal.classList.remove('is-open');
+      setTimeout(() => {
+        forgotPasswordModal.style.display = 'none';
+      }, 400);
+    }
+
+    function sendResetLink() {
+      const email = document.getElementById('resetEmail').value;
+      if (!email) {
+        alert('Please enter your email address.');
+        return;
+      }
+      
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      forgotPasswordModal.classList.remove('is-open');
+      
+      setTimeout(() => {
+        forgotPasswordModal.style.display = 'none';
+        
+        resetPasswordModal.style.display = 'flex';
+        setTimeout(() => {
+          resetPasswordModal.classList.add('is-open');
+        }, 100);
+      }, 400);
+    }
+
+    function closeResetPassword() {
+      resetPasswordModal.classList.remove('is-open');
+      setTimeout(() => {
+        resetPasswordModal.style.display = 'none';
+        document.getElementById('newPassword').value = '';
+        document.getElementById('confirmPassword').value = '';
+        document.getElementById('passwordError').style.display = 'none';
+        document.getElementById('passwordResetSuccess').style.display = 'none';
+      }, 400);
+    }
+
+    function resetPassword() {
+      const newPassword = document.getElementById('newPassword').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const passwordError = document.getElementById('passwordError');
+      const passwordResetSuccess = document.getElementById('passwordResetSuccess');
+
+      if (!newPassword || !confirmPassword) {
+        passwordError.textContent = 'Please fill in both password fields.';
+        passwordError.style.display = 'block';
+        return;
+      }
+
+      if (newPassword.length < 6) {
+        passwordError.textContent = 'Password must be at least 6 characters.';
+        passwordError.style.display = 'block';
+        return;
+      }
+
+      if (newPassword !== confirmPassword) {
+        passwordError.textContent = 'Passwords do not match!';
+        passwordError.style.display = 'block';
+        return;
+      }
+
+      passwordError.style.display = 'none';
+      
+      passwordResetSuccess.style.display = 'block';
+      
+      document.getElementById('newPassword').value = '';
+      document.getElementById('confirmPassword').value = '';
+      
+      setTimeout(() => {
+        closeResetPassword();
+        
+        setTimeout(() => {
+          modal.classList.add('is-open');
+        }, 300);
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>
