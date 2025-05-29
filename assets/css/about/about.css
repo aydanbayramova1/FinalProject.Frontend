@@ -1069,7 +1069,7 @@ body{
 
 .hero{
 	position: relative;
-	background: url('../../assets/images/common/hero-bg.jpg') no-repeat;
+	/* background: url('../../assets/images/common/hero-bg.jpg') no-repeat; */
 
 	background-position: center center;
 	background-size: auto;
