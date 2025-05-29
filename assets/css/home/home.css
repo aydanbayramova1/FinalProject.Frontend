@@ -4844,3 +4844,222 @@ body{
             transform: translateX(0);
         }
     }
+
+	.user-account-dropdown {
+		position: relative;
+		margin-left: 15px;
+		margin-right: 10px;
+		display: inline-block;
+	  }
+	  
+	  .user-icon-btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 42px;
+		height: 42px;
+		border-radius: 50%;
+		background-color: #e4ccb4;
+		color: #121d23;
+		text-decoration: none;
+		transition: all 0.3s ease;
+		border: 2px solid transparent;
+	  }
+	  
+	  .user-icon-btn:hover {
+		background-color: #d4b89a;
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(228, 204, 180, 0.3);
+		border-color: #e4ccb4;
+	  }
+	  
+	  .user-icon-btn:focus {
+		outline: none;
+		box-shadow: 0 0 0 3px rgba(228, 204, 180, 0.3);
+	  }
+	  
+	  .user-icon-btn i {
+		font-size: 18px;
+	  }
+	  
+	  .dropdown-menu {
+		position: absolute;
+		top: 100%;
+		right: 0;
+		width: 180px;
+		background-color: #1a2832;
+		border: 1px solid rgba(228, 204, 180, 0.2);
+		border-radius: 8px;
+		padding: 8px 0;
+		margin-top: 8px;
+		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(10px);
+		transition: all 0.3s ease;
+		z-index: 1000;
+	  }
+	  
+	  .dropdown-menu::before {
+		content: "";
+		position: absolute;
+		top: -6px;
+		right: 15px;
+		width: 12px;
+		height: 12px;
+		background-color: #1a2832;
+		border: 1px solid rgba(228, 204, 180, 0.2);
+		border-bottom: none;
+		border-right: none;
+		transform: rotate(45deg);
+	  }
+	  
+	  .user-account-dropdown:hover .dropdown-menu,
+	  .dropdown-menu.show {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	  }
+	  
+	  .dropdown-item {
+		display: flex;
+		align-items: center;
+		padding: 12px 20px;
+		color: #e4ccb4;
+		text-decoration: none;
+		transition: all 0.2s ease;
+		font-size: 14px;
+		font-weight: 500;
+	  }
+	  
+	  .dropdown-item:hover {
+		background-color: rgba(228, 204, 180, 0.1);
+		color: #e4ccb4;
+		text-decoration: none;
+	  }
+	  
+	  .dropdown-item i {
+		margin-right: 10px;
+		font-size: 14px;
+		width: 18px;
+		text-align: center;
+	  }
+	  
+	  @media (max-width: 1199px) {
+		.user-account-dropdown {
+		  margin-left: 10px;
+		  margin-right: 5px;
+		}
+	  }
+	  
+	  @media (max-width: 991px) {
+		.user-account-dropdown {
+		  display: none; 
+		}
+	  }
+	  
+	  .responsive-menu #menu .user-menu-item {
+		margin-top: 10px;
+		border-top: 1px solid rgba(228, 204, 180, 0.2);
+		padding-top: 10px;
+	  }
+	  
+	  .responsive-menu #menu .user-menu-item:first-of-type {
+		margin-top: 15px;
+	  }
+	  
+	  .responsive-menu #menu .user-menu-item a {
+		display: flex;
+		align-items: center;
+		padding: 10px 15px;
+		color: #e4ccb4;
+		text-decoration: none;
+		transition: all 0.3s ease;
+	  }
+	  
+	  .responsive-menu #menu .user-menu-item a:hover {
+		background-color: rgba(228, 204, 180, 0.1);
+		color: #e4ccb4;
+	  }
+	  
+	  .responsive-menu #menu .user-menu-item i {
+		margin-right: 10px;
+		font-size: 16px;
+		width: 20px;
+		text-align: center;
+	  }
+	  
+	  .header-button-box {
+		display: flex;
+		align-items: center;
+		gap: 0;
+	  }
+	  
+	  .header-btn {
+		margin-right: 0;
+	  }
+	  
+	  .header2-search {
+		margin-left: 100px !important;
+	  }
+	  
+	  @keyframes fadeInDown {
+		from {
+		  opacity: 0;
+		  transform: translateY(-10px);
+		}
+		to {
+		  opacity: 1;
+		  transform: translateY(0);
+		}
+	  }
+	  
+	  .dropdown-menu.show {
+		animation: fadeInDown 0.3s ease;
+	  }
+	  
+	  .dropdown-item:focus {
+		outline: 2px solid #e4ccb4;
+		outline-offset: -2px;
+		background-color: rgba(228, 204, 180, 0.1);
+	  }
+	  
+	  .user-icon-btn:active {
+		transform: translateY(0);
+	  }
+	  
+
+	  
+.custom-book-btn {
+	background-color: #cba985;
+	color: #000;
+	font-weight: bold;
+	padding: 12px 28px;
+	border-radius: 35px;
+	text-transform: uppercase;
+	text-decoration: none;
+	display: inline-block;
+	transition: background-color 0.3s ease;
+  }
+  
+  .custom-book-btn:hover {
+	background-color: #b58f6e;
+	color: #fff;
+  }
+  
+  
+
+.btn-highlighted {
+	padding: 10px 18px;      
+	border-radius: 35px;   
+	width: auto;              
+	min-width: 160px;         
+	background-color: #d1b28f;
+	color: #000;              
+	font-weight: 10px;      
+	text-align: center;       
+	display: inline-block;
+	text-decoration: none;
+  }
+  
+  

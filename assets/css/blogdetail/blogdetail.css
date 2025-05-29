@@ -2579,6 +2579,120 @@ body{
 
 
 
+  .user-account-dropdown {
+    position: relative;
+    margin-left: 15px;
+    display: inline-block;
+  }
+  
+  .user-icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #e4ccb4;
+    color: #121d23;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .user-icon-btn:hover {
+    background-color: #d4b89a;
+    transform: translateY(-2px);
+  }
+  
+  .user-icon-btn i {
+    font-size: 18px;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 180px;
+    background-color: #1a2832;
+    border: 1px solid rgba(228, 204, 180, 0.2);
+    border-radius: 8px;
+    padding: 10px 0;
+    margin-top: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .user-account-dropdown:hover .dropdown-menu,
+  .dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: #e4ccb4;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .dropdown-item:hover {
+    background-color: rgba(228, 204, 180, 0.1);
+    color: #e4ccb4;
+  }
+  
+  .dropdown-item i {
+    margin-right: 10px;
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+  }
+  
+  @media (max-width: 991px) {
+    .user-account-dropdown {
+      display: none;
+    }
+  
+    .user-account-dropdown.mobile-visible {
+      display: block;
+      margin: 15px auto;
+      text-align: center;
+    }
+  
+    .mobile-user-links {
+      display: none;
+    }
+  
+    .mobile-user-links.show {
+      display: block;
+    }
+  
+    .mobile-user-links .dropdown-item {
+      padding: 12px 15px;
+      border-bottom: 1px solid rgba(228, 204, 180, 0.1);
+    }
+  }
+  
+  .responsive-menu #menu .user-menu-item {
+    margin-top: 15px;
+    border-top: 1px solid rgba(228, 204, 180, 0.2);
+    padding-top: 15px;
+  }
+  
+  .responsive-menu #menu .user-menu-item a {
+    display: flex;
+    align-items: center;
+  }
+  
+  .responsive-menu #menu .user-menu-item i {
+    margin-right: 10px;
+  }
+  
 
 
   

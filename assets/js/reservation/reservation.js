@@ -2199,3 +2199,53 @@ function showQRCodeFallback(canvas, reservationData) {
                 });
             });
           });
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const userIconBtn = document.querySelector(".user-icon-btn")
+  const dropdownMenu = document.querySelector(".dropdown-menu")
+
+  if (userIconBtn && dropdownMenu) {
+    userIconBtn.addEventListener("click", (e) => {
+      e.preventDefault()
+      dropdownMenu.classList.toggle("show")
+
+      document.addEventListener("click", function closeDropdown(event) {
+        if (!event.target.closest(".user-account-dropdown")) {
+          dropdownMenu.classList.remove("show")
+          document.removeEventListener("click", closeDropdown)
+        }
+      })
+    })
+  }
+
+  const mobileMenu = document.querySelector(".responsive-menu #menu")
+
+  if (mobileMenu) {
+    const loginItem = document.createElement("li")
+    loginItem.className = "user-menu-item"
+    loginItem.innerHTML = '<a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>'
+
+    const registerItem = document.createElement("li")
+    registerItem.className = "user-menu-item"
+    registerItem.innerHTML = '<a href="register.html"><i class="fas fa-user-plus"></i> Register</a>'
+
+    
+    mobileMenu.appendChild(loginItem)
+    mobileMenu.appendChild(registerItem)
+  }
+
+  const mobileMenuToggle = document.querySelector(".fa-bars")
+
+  if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener("click", () => {
+      const mobileMenu = document.querySelector(".responsive-menu #menu")
+      if (mobileMenu) {
+        mobileMenu.classList.toggle("active")
+      }
+    })
+  }
+})
