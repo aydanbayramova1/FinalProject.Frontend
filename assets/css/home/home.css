@@ -513,11 +513,12 @@ body{
   }
   
   .navbar {
-    padding: 25px 0;
+    padding: 35px 0;
     align-items: center;
   }
   
   .navbar-brand {
+	width: 197px;
     padding: 0;
     margin: 0;
   }

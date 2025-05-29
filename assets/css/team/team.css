@@ -520,6 +520,7 @@ header.main-header .header-sticky.active {
 }
 
 .navbar-brand {
+  width: 197px;
   padding: 0;
   margin: 0;
 }
