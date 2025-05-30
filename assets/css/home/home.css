@@ -1111,7 +1111,7 @@ body{
 
 .hero.hero-slider-layout .hero-slide{
 	position: relative;
-	background: url('../../images/common/hero-bg.jpg');
+	/* background: url('../../images/common/hero-bg.jpg'); */
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -1119,7 +1119,7 @@ body{
 }
 
 .hero.hero-slider-layout .hero-slide.slide-2{
-	background: url('../../images/common/hero-bg-2.jpg');
+	/* background: url('../../images/common/hero-bg-2.jpg'); */
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -1706,7 +1706,7 @@ body{
     margin-bottom: 80px;
 	position: relative;
 	padding: 200px 0 100px;
-	background-image: url('../../images/common/backgrounddd.jpg');
+	/* background-image: url('../../images/common/backgrounddd.jpg'); */
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -4505,7 +4505,6 @@ body{
 
 	#footer-section {
 		position: relative;
-		 background: url(../../images/common/footer-bg-image.jpg) no-repeat; 
 		background-position: center center;
 		background-size: cover;
 		padding: 100px 0 0;
