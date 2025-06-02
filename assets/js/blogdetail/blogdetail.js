@@ -50,17 +50,6 @@ $(document).ready(function () {
 });
 
 
-function initMobileMenu(menuSelector, targetSelector, labelText = '') {
-	$(menuSelector).slicknav({
-		label: labelText,
-		prependTo: targetSelector
-	});
-}
-
-$(document).ready(function () {
-
-	initMobileMenu('#menu', '.responsive-menu'); 
-});
 
 
 function counterUp(elementsSelector, delay, duration) {
@@ -336,10 +325,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
    
   
-        const menuItemContent = menuItem.querySelector(".menu-item-content")
-        if (menuItemContent) {
-          menuItemContent.insertAdjacentHTML("beforebegin", sizeOptionsHTML)
-        }
+       
   
         const sizeOptions = menuItem.querySelectorAll(".size-option")
         sizeOptions.forEach((option) => {

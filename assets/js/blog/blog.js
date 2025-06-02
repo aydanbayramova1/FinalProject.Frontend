@@ -50,17 +50,7 @@ $(document).ready(function () {
 });
 
 
-function initMobileMenu(menuSelector, targetSelector, labelText = '') {
-	$(menuSelector).slicknav({
-		label: labelText,
-		prependTo: targetSelector
-	});
-}
 
-$(document).ready(function () {
-
-	initMobileMenu('#menu', '.responsive-menu'); 
-});
 
 
 function counterUp(elementsSelector, delay, duration) {
@@ -170,46 +160,11 @@ document.addEventListener("DOMContentLoaded", () => {
   })
   
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuIcon = document.querySelector(".slicknav_menu i")
-    const mobileMenu = document.querySelector(".slicknav_menu ul")
-  
-    if (menuIcon && mobileMenu) {
-      menuIcon.addEventListener("click", function () {
-        const menuParent = this.parentElement
-        menuParent.classList.toggle("active")
-      })
-    }
-    function handleResponsiveLayout() {
-      const windowWidth = window.innerWidth
-      const topbarContactInfo = document.querySelector(".topbar-contact-info ul")
-  
-      if (windowWidth <= 767) {
-        if (topbarContactInfo) {
-          const addressItem = topbarContactInfo.querySelector("li:nth-child(2)")
-          if (addressItem) {
-            const addressText = addressItem.textContent
-            if (addressText.length > 40) {
-              const truncatedText = addressText.substring(0, 40) + "..."
-              addressItem.setAttribute("title", addressText) 
-              addressItem.textContent = truncatedText
-            }
-          }
-        }
-      }
-    }
-
-    handleResponsiveLayout()
-    window.addEventListener("resize", handleResponsiveLayout)
-  })
-  
-
 
 ;(() => {
     const body = document.body
     const window = self
   
-    const slicknav = window.slicknav
     const Swiper = window.Swiper
     const magnificPopup = window.magnificPopup
   

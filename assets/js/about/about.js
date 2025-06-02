@@ -50,17 +50,6 @@ $(document).ready(function () {
 });
 
 
-function initMobileMenu(menuSelector, targetSelector, labelText = '') {
-	$(menuSelector).slicknav({
-		label: labelText,
-		prependTo: targetSelector
-	});
-}
-
-$(document).ready(function () {
-
-	initMobileMenu('#menu', '.responsive-menu'); 
-});
 
 
 function counterUp(elementsSelector, delay, duration) {
