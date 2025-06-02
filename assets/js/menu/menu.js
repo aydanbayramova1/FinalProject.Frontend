@@ -57,10 +57,6 @@ function initMobileMenu(menuSelector, targetSelector, labelText = '') {
 	});
 }
 
-$(document).ready(function () {
-
-	initMobileMenu('#menu', '.responsive-menu'); 
-});
 
 
 function counterUp(elementsSelector, delay, duration) {
@@ -209,28 +205,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const body = document.body
     const window = self
   
-    const slicknav = window.slicknav
-    const Swiper = window.Swiper
-    const magnificPopup = window.magnificPopup
-  
-    document.addEventListener("DOMContentLoaded", () => {
-      if (typeof slicknav === "function") {
-        slicknav(document.getElementById("menu"), {
-          label: "",
-          prependTo: ".responsive-menu",
-          closedSymbol: "&#9658;",
-          openedSymbol: "&#9660;",
-        })
-      } else if (window.SlickNav) {
-        new window.SlickNav(document.getElementById("menu"), {
-          label: "",
-          prependTo: ".responsive-menu",
-          closedSymbol: "&#9658;",
-          openedSymbol: "&#9660;",
-        })
-      } 
-       
-    })
+   
+
+    
   
     const topLinks = document.querySelectorAll("a[href='#top']")
     if (topLinks.length) {
@@ -1904,14 +1881,20 @@ document.addEventListener("DOMContentLoaded", () => {
     mobileMenu.appendChild(registerItem)
   }
 
-  const mobileMenuToggle = document.querySelector(".fa-bars")
 
-  if (mobileMenuToggle) {
-    mobileMenuToggle.addEventListener("click", () => {
-      const mobileMenu = document.querySelector(".responsive-menu #menu")
-      if (mobileMenu) {
-        mobileMenu.classList.toggle("active")
-      }
-    })
-  }
 })
+
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('show');
+}
+
+document.addEventListener('click', function(e) {
+  const menu = document.getElementById('mobileMenu');
+  const menuIcon = document.querySelector('.slicknav-menu');
+  if (!menuIcon.contains(e.target)) {
+      menu.classList.remove('show');
+  }
+});
+
+

@@ -50,12 +50,6 @@ $(document).ready(function () {
 });
 
 
-function initMobileMenu(menuSelector, targetSelector, labelText = '') {
-	$(menuSelector).slicknav({
-		label: labelText,
-		prependTo: targetSelector
-	});
-}
 
 $(document).ready(function () {
 
@@ -170,68 +164,14 @@ document.addEventListener("DOMContentLoaded", () => {
   })
   
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuIcon = document.querySelector(".slicknav_menu i")
-    const mobileMenu = document.querySelector(".slicknav_menu ul")
-  
-    if (menuIcon && mobileMenu) {
-      menuIcon.addEventListener("click", function () {
-        const menuParent = this.parentElement
-        menuParent.classList.toggle("active")
-      })
-    }
-    function handleResponsiveLayout() {
-      const windowWidth = window.innerWidth
-      const topbarContactInfo = document.querySelector(".topbar-contact-info ul")
-  
-      if (windowWidth <= 767) {
-        if (topbarContactInfo) {
-          const addressItem = topbarContactInfo.querySelector("li:nth-child(2)")
-          if (addressItem) {
-            const addressText = addressItem.textContent
-            if (addressText.length > 40) {
-              const truncatedText = addressText.substring(0, 40) + "..."
-              addressItem.setAttribute("title", addressText) 
-              addressItem.textContent = truncatedText
-            }
-          }
-        }
-      }
-    }
 
-    handleResponsiveLayout()
-    window.addEventListener("resize", handleResponsiveLayout)
-  })
-  
 
 
 ;(() => {
     const body = document.body
     const window = self
   
-    const slicknav = window.slicknav
-    const Swiper = window.Swiper
-    const magnificPopup = window.magnificPopup
-  
-    document.addEventListener("DOMContentLoaded", () => {
-      if (typeof slicknav === "function") {
-        slicknav(document.getElementById("menu"), {
-          label: "",
-          prependTo: ".responsive-menu",
-          closedSymbol: "&#9658;",
-          openedSymbol: "&#9660;",
-        })
-      } else if (window.SlickNav) {
-        new window.SlickNav(document.getElementById("menu"), {
-          label: "",
-          prependTo: ".responsive-menu",
-          closedSymbol: "&#9658;",
-          openedSymbol: "&#9660;",
-        })
-      } 
-       
-    })
-  
+   
     const topLinks = document.querySelectorAll("a[href='#top']")
     if (topLinks.length) {
       topLinks.forEach((link) => {
@@ -1534,3 +1474,18 @@ window.logout = () => {
   sessionStorage.removeItem("userToken")
   window.location.href = "home.html"
 }
+
+
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('show');
+}
+
+document.addEventListener('click', function(e) {
+  const menu = document.getElementById('mobileMenu');
+  const menuIcon = document.querySelector('.slicknav-menu');
+  if (!menuIcon.contains(e.target)) {
+      menu.classList.remove('show');
+  }
+});
+
