@@ -1207,9 +1207,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const userIconBtn = document.querySelector(".user-icon-btn")
   const dropdownMenu = document.querySelector(".dropdown-menu")

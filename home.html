@@ -73,80 +73,83 @@
         </section>
         <!-- Topbar Section End -->
 
-      <!-- Header Start -->
-      <section id="header-section">   
-        <div class="header-sticky">
-            <nav class="navbar navbar-expand-lg">
-                <div class="container">
-                    <a class="navbar-brand" href="home.html">
-                        <img style="width: 230px; height: auto;" src="assets/images/common/logo.jpg" alt="Logo">
-                    </a>
-                    <div style="margin-right: 11pc;" class="collapse navbar-collapse main-menu">
-                        <div class="nav-menu-wrapper">
-                            <ul class="navbar-nav mr-auto" id="menu">
-                                <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
-                                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                                <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
-                                <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>                                          
-                                <li class="nav-item"><a class="nav-link" href="faqs.html">FAQs</a></li>
-                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                                <li class="nav-item highlighted-menu"><a class="nav-link" href="reservation.html">Book A Table</a></li>
-                            </ul>
+        <!-- Header Start -->
+        <section id="header-section">
+            <div class="header-sticky">
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container">
+                        <a class="navbar-brand" href="home.html">
+                            <img style="width: 230px; height: auto;" src="assets/images/common/logo.jpg" alt="Logo">
+                        </a>
+                        <div style="margin-right: 11pc;" class="collapse navbar-collapse main-menu">
+                            <div class="nav-menu-wrapper">
+                                <ul class="navbar-nav mr-auto" id="menu">
+                                    <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="faqs.html">FAQs</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                                    <li class="nav-item highlighted-menu"><a class="nav-link"
+                                            href="reservation.html">Book A Table</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="header-button-box">
+                                <div class="header-btn">
+                                    <a href="reservation.html" class="btn-default btn-highlighted">Book a table</a>
+                                </div>
+
+                                <div class="user-account-dropdown">
+                                    <a href="#" class="user-icon-btn" id="userAccountBtn">
+                                        <i class="fas fa-user"></i>
+                                    </a>
+                                    <div class="dropdown-menu" id="userDropdown" style="margin-right: -5pc;">
+                                        <a href="login.html" class="dropdown-item">
+                                            <i class="fas fa-sign-in-alt"></i> Login
+                                        </a>
+                                        <a href="register.html" class="dropdown-item">
+                                            <i class="fas fa-user-plus"></i> Register
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div style="width: 86px;margin-left: -81px;" class="col-auto d-none d-xl-block">
+                                    <div style="margin-left: 112px;" class="header2-search">
+                                        <form action="#">
+                                            <input type="text" placeholder="Search...">
+                                            <button class="btn"><i class="fas fa-search"></i></button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-    
-                        <div class="header-button-box">
-                            <div class="header-btn">
-                                <a href="reservation.html" class="btn-default btn-highlighted">Book a table</a>
-                            </div>
-                            
-                            <div class="user-account-dropdown">
-                                <a href="#" class="user-icon-btn" id="userAccountBtn">
-                                    <i class="fas fa-user"></i>
-                                </a>
-                                <div class="dropdown-menu" id="userDropdown" style="margin-right: -5pc;">
-                                    <a href="login.html" class="dropdown-item">
-                                        <i class="fas fa-sign-in-alt"></i> Login
-                                    </a>
-                                    <a href="register.html" class="dropdown-item">
-                                        <i class="fas fa-user-plus"></i> Register
-                                    </a>
-                                </div>
-                            </div>
-                         
-                            <div style="width: 86px;margin-left: -81px;" class="col-auto d-none d-xl-block">
-                                <div style="margin-left: 112px;" class="header2-search">
-                                    <form action="#">
-                                        <input type="text" placeholder="Search...">
-                                        <button class="btn"><i class="fas fa-search"></i></button>
-                                    </form>
-                                </div>
+
+                        <div class="responsive-menu">
+                            <div class="slicknav-menu" onclick="toggleMobileMenu()">
+                                <i class="fa-solid fa-bars"></i>
+                                <ul id="mobileMenu">
+                                    <li><a href="home.html">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="menu.html">Menu</a></li>
+                                    <li><a href="team.html">Team</a></li>
+                                    <li><a href="faqs.html">FAQs</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="reservation.html">Book A Table</a></li>
+                                    <li class="user-menu-item"><a href="login.html"><i class="fas fa-sign-in-alt"></i>
+                                            Login</a></li>
+                                    <li class="user-menu-item"><a href="register.html"><i class="fas fa-user-plus"></i>
+                                            Register</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-    
-                    <div class="responsive-menu">
-                        <div class="slicknav-menu" onclick="toggleMobileMenu()">
-                            <i class="fa-solid fa-bars"></i>
-                            <ul id="mobileMenu">
-                                <li><a href="home.html">Home</a></li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="menu.html">Menu</a></li>
-                                <li><a href="team.html">Team</a></li>
-                                <li><a href="faqs.html">FAQs</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                                <li><a href="reservation.html">Book A Table</a></li>
-                                <li class="user-menu-item"><a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-                                <li class="user-menu-item"><a href="register.html"><i class="fas fa-user-plus"></i> Register</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </section>
-    <!-- Header End -->
+                </nav>
+            </div>
+        </section>
+        <!-- Header End -->
     </header>
     <!-- Esas Header End -->
 
@@ -1625,14 +1628,15 @@
                                     </div>
                                     <div class="footer-contact-detail">
                                         <h3>contact us</h3>
-                                        <p>T. <a href="https://wa.me/994513153684" target="_blank">+994 51 315 36 84</a></p>
+                                        <p>T. <a href="https://wa.me/994513153684" target="_blank">+994 51 315 36 84</a>
+                                        </p>
                                         <p>M. <a href="mailto:caffeluna67@gmail.com">caffeluna67@gmail.com</a></p>
                                     </div>
                                     <div class="footer-contact-button">
                                         <a href="contact.html" class="btn-default btn-highlighted">contact us</a>
                                     </div>
                                 </div>
-    
+
                                 <div class="footer-contact-item">
                                     <div class="icon-box">
                                         <img src="assets/images/common/address.svg" alt="">
@@ -1645,7 +1649,7 @@
                                         <a href="contact.html" class="btn-default btn-highlighted">get direction</a>
                                     </div>
                                 </div>
-    
+
                                 <div class="footer-contact-item">
                                     <div class="icon-box">
                                         <img src="assets/images/common/clock.svg" alt="">
@@ -1662,17 +1666,17 @@
                                 </div>
                             </div>
                         </div>
-    
+
                         <div class="col-lg-12">
                             <div class="footer-copyright">
                                 <div class="footer-copyright-text order-md-1 order-3">
                                     <p>Copyright © 2025 Caffe Luna by Aydan.</p>
                                 </div>
-    
+
                                 <div class="footer-logo order-md-2 order-1">
                                     <img src="assets/images/common/footer.looggoooo.jpg" alt="">
                                 </div>
-    
+
                                 <div class="footer-social-links order-md-3 order-2">
                                     <ul>
                                         <li><a href="https://www.instagram.com/_caffe.luna_?igsh=MThmeGtkajQ1cTJ4eQ=="><i

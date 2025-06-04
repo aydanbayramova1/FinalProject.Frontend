@@ -1318,15 +1318,7 @@ body{
 		display: block;
 	}
 	
-	.slicknav_nav li,
-	.slicknav_nav ul{
-        display: block;
-    }
-
-	.responsive-menu,
-    .navbar-toggle{
-        display: block;
-    }
+  
 
 	.header-sidebar-btn{
 		display: none;
